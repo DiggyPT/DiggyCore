@@ -1,0 +1,22 @@
+--------------------------------------------------------------------------------
+
+Command-Line:
+ - D:\Users\diogo\.gradle\jdks\eclipse_adoptium-21-amd64-windows.2\bin\java.exe
+ - -jar
+ - D:\Users\diogo\.gradle\caches\modules-2\files-2.1\net.neoforged.jst\jst-cli-bundle\1.0.72\5062f69cd7700922b3dbfce273ed795bab71858f\jst-cli-bundle-1.0.72.jar
+ - --problems-report
+ - D:\Users\diogo\OneDrive\Documentos\GitHub\DiggyCore\build\tmp\neoformruntime\20260509-162728_applyParchment\problems.json
+ - --libraries-list
+ - D:\Users\diogo\.gradle\caches\neoformruntime\intermediate_results\listLibraries_b51a4dc30e68d84e8ea078ac88c4e02e31291df4_output.txt
+ - --in-format
+ - ARCHIVE
+ - --out-format
+ - ARCHIVE
+ - --enable-parchment
+ - --parchment-mappings=D:\Users\diogo\.gradle\caches\modules-2\files-2.1\org.parchmentmc.data\parchment-1.20.1\2023.09.03\719c44b95e4f867c050911d110539d576a5551a5\parchment-1.20.1-2023.09.03.zip
+ - --parchment-conflict-prefix=p_
+ - D:\Users\diogo\.gradle\caches\neoformruntime\intermediate_results\remapSrgSourcesToOfficial_1e793af3d39999742e323d2a675339706cd660e9_output.zip
+ - ./output.zip
+--------------------------------------------------------------------------------
+
+Loading mapping file D:\Users\diogo\.gradle\caches\modules-2\files-2.1\org.parchmentmc.data\parchment-1.20.1\2023.09.03\719c44b95e4f867c050911d110539d576a5551a5\parchment-1.20.1-2023.09.03.zip

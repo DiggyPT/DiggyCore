@@ -1,0 +1,210 @@
+---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 2026-05-09 19:11:53
+Description: Unexpected error
+
+java.lang.NullPointerException: Cannot invoke "net.minecraft.client.renderer.texture.TextureAtlasSprite.uvShrinkRatio()" because "pSprite" is null
+	at com.lowdragmc.lowdraglib.client.bakedpipeline.FaceQuadBakery.bakeQuad(FaceQuadBakery.java:44) ~[ldlib-forge-1.20.1-1.0.40.b.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at com.lowdragmc.lowdraglib.client.bakedpipeline.FaceQuad$Builder.bake(FaceQuad.java:131) ~[ldlib-forge-1.20.1-1.0.40.b.jar:?] {re:classloading}
+	at com.gregtechceu.gtceu.client.model.PipeModel.bakeQuads(PipeModel.java:191) ~[gtceu-1.20.1-7.4.0-slim.jar:7.4.0] {re:classloading}
+	at com.gregtechceu.gtceu.client.model.PipeModel.lambda$renderItem$3(PipeModel.java:275) ~[gtceu-1.20.1-7.4.0-slim.jar:7.4.0] {re:classloading}
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1740) ~[?:?] {}
+	at com.gregtechceu.gtceu.client.model.PipeModel.lambda$renderItem$4(PipeModel.java:273) ~[gtceu-1.20.1-7.4.0-slim.jar:7.4.0] {re:classloading}
+	at net.minecraft.client.renderer.entity.ItemRenderer.renderModelLists(ItemRenderer.java:93) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java:147) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at com.gregtechceu.gtceu.client.model.PipeModel.renderItem(PipeModel.java:271) ~[gtceu-1.20.1-7.4.0-slim.jar:7.4.0] {re:classloading}
+	at com.gregtechceu.gtceu.client.renderer.block.PipeBlockRenderer.renderItem(PipeBlockRenderer.java:63) ~[gtceu-1.20.1-7.4.0-slim.jar:7.4.0] {re:classloading}
+	at net.minecraft.client.renderer.entity.ItemRenderer.handler$zbm000$injectRenderItem(ItemRenderer.java:1041) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.entity.ItemRenderer.renderStatic(ItemRenderer.java:226) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.ItemInHandRenderer.renderItem(ItemInHandRenderer.java:123) ~[forge-1.20.1-47.4.0.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.ItemInHandRenderer.renderArmWithItem(ItemInHandRenderer.java:500) ~[forge-1.20.1-47.4.0.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.ItemInHandRenderer.renderHandsWithItems(ItemInHandRenderer.java:320) ~[forge-1.20.1-47.4.0.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.GameRenderer.renderItemInHand(GameRenderer.java:858) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.GameRenderer.renderLevel(GameRenderer.java:1138) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:915) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1164) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:MinecraftClientMixin,pl:mixin:APP:configuration.mixins.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:733) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:MinecraftClientMixin,pl:mixin:APP:configuration.mixins.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.4.0.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.4.0.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.4.0.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.4.0.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.4.0.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:55) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Suspected Mods: 
+	LowDragLib (ldlib), Version: 1.0.40.b
+		at TRANSFORMER/ldlib@1.0.40.b/com.lowdragmc.lowdraglib.client.bakedpipeline.FaceQuadBakery.bakeQuad(FaceQuadBakery.java:44)
+
+	GregTech (gtceu), Version: 7.4.0
+		Issue tracker URL: https://github.com/GregTechCEu/GregTech-Modern/issues/
+		at TRANSFORMER/gtceu@7.4.0/com.gregtechceu.gtceu.client.model.PipeModel.bakeQuads(PipeModel.java:191)
+Stacktrace:
+	at com.lowdragmc.lowdraglib.client.bakedpipeline.FaceQuadBakery.bakeQuad(FaceQuadBakery.java:44) ~[ldlib-forge-1.20.1-1.0.40.b.jar%23198!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at com.lowdragmc.lowdraglib.client.bakedpipeline.FaceQuad$Builder.bake(FaceQuad.java:131) ~[ldlib-forge-1.20.1-1.0.40.b.jar%23198!/:?] {re:classloading}
+	at com.gregtechceu.gtceu.client.model.PipeModel.bakeQuads(PipeModel.java:191) ~[gtceu-1.20.1-7.4.0-slim.jar%23197!/:7.4.0] {re:classloading}
+	at com.gregtechceu.gtceu.client.model.PipeModel.lambda$renderItem$3(PipeModel.java:275) ~[gtceu-1.20.1-7.4.0-slim.jar%23197!/:7.4.0] {re:classloading}
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1740) ~[?:?] {}
+	at com.gregtechceu.gtceu.client.model.PipeModel.lambda$renderItem$4(PipeModel.java:273) ~[gtceu-1.20.1-7.4.0-slim.jar%23197!/:7.4.0] {re:classloading}
+	at net.minecraft.client.renderer.entity.ItemRenderer.renderModelLists(ItemRenderer.java:93) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java:147) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at com.gregtechceu.gtceu.client.model.PipeModel.renderItem(PipeModel.java:271) ~[gtceu-1.20.1-7.4.0-slim.jar%23197!/:7.4.0] {re:classloading}
+	at com.gregtechceu.gtceu.client.renderer.block.PipeBlockRenderer.renderItem(PipeBlockRenderer.java:63) ~[gtceu-1.20.1-7.4.0-slim.jar%23197!/:7.4.0] {re:classloading}
+	at net.minecraft.client.renderer.entity.ItemRenderer.handler$zbm000$injectRenderItem(ItemRenderer.java:1041) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.entity.ItemRenderer.renderStatic(ItemRenderer.java:226) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:accessor.ItemRendererAccessor,pl:mixin:APP:ldlib-common.mixins.json:ItemRendererMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.ItemInHandRenderer.renderItem(ItemInHandRenderer.java:123) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.ItemInHandRenderer.renderArmWithItem(ItemInHandRenderer.java:500) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.ItemInHandRenderer.renderHandsWithItems(ItemInHandRenderer.java:320) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.GameRenderer.renderItemInHand(GameRenderer.java:858) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.renderer.GameRenderer.renderLevel(GameRenderer.java:1138) ~[forge-1.20.1-47.4.0-merged.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+-- Affected level --
+Details:
+	All players: 1 total; [LocalPlayer['Dev'/164, l='ClientLevel', x=-2.98, y=71.00, z=43.49]]
+	Chunk stats: 961, 609
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,75,0), Section: (at 0,11,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 10528 game time, 10528 day time
+	Server brand: forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.fillReportDetails(ClientLevel.java:467) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:APP:gtceu.mixins.json:client.ClientLevelAccessor,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.fillReport(Minecraft.java:2349) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:MinecraftClientMixin,pl:mixin:APP:configuration.mixins.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:755) ~[forge-1.20.1-47.4.0.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:emi.mixins.json:MinecraftClientMixin,pl:mixin:APP:configuration.mixins.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.4.0.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.4.0.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.4.0.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.4.0.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.4.0.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:55) ~[?:?] {}
+
+
+-- Last reload --
+Details:
+	Reload number: 2
+	Reload reason: manual
+	Finished: No
+	Packs: gtceu:dynamic_assets, vanilla, mod_resources
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.12, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 1207993696 bytes (1152 MiB) / 3909091328 bytes (3728 MiB) up to 4276092928 bytes (4078 MiB)
+	CPUs: 12
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 5600 6-Core Processor              
+	Identifier: AuthenticAMD Family 25 Model 33 Stepping 2
+	Microarchitecture: Zen 3
+	Frequency (GHz): 3.50
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: NVIDIA GeForce GTX 1060 3GB
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 3072.00
+	Graphics card #0 deviceId: 0x1c02
+	Graphics card #0 versionInfo: DriverVersion=32.0.15.6094
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 2.93
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 2.93
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 30133.56
+	Virtual memory used (MB): 23323.07
+	Swap memory total (MB): 13824.00
+	Swap memory used (MB): 1082.51
+	JVM Flags: 0 total; 
+	Launched Version: MOD_DEV
+	Backend library: LWJGL version 3.3.1 build 7
+	Backend API: NVIDIA GeForce GTX 1060 3GB/PCIe/SSE2 GL version 4.6.0 NVIDIA 560.94, NVIDIA Corporation
+	Window size: 1920x1009
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: 
+	Current Language: en_us
+	CPU: 12x AMD Ryzen 5 5600 6-Core Processor 
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/164, l='ServerLevel[New World]', x=-2.98, y=71.00, z=43.49]]
+	Data Packs: vanilla, mod:emi (incompatible), mod:mixinextras (incompatible), mod:configuration, mod:forge, mod:jade (incompatible), mod:ldlib (incompatible), mod:jei, mod:gtceu, mod:diggycore, gtceu:dynamic_data
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	ModLauncher: 10.0.10+10.0.10+main.22f00f84
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.0.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.0.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.0.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.0.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.0.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.10.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.10.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		emi-forge-1.1.13+1.20.1.jar                       |EMI                           |emi                           |1.1.13+1.20.1+forge |DONE      |Manifest: NOSIGNATURE
+		forge-1.20.1-47.4.0-merged.jar                    |Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: NOSIGNATURE
+		mixinextras-forge-0.3.5.jar                       |MixinExtras                   |mixinextras                   |0.3.5               |DONE      |Manifest: NOSIGNATURE
+		configuration-forge-1.20.1-2.2.0.jar              |Configuration                 |configuration                 |2.2.0               |DONE      |Manifest: NOSIGNATURE
+		                                                  |Forge                         |forge                         |47.4.0              |DONE      |Manifest: NOSIGNATURE
+		jade-324717-5390389.jar                           |Jade                          |jade                          |11.9.3+forge        |DONE      |Manifest: NOSIGNATURE
+		ldlib-forge-1.20.1-1.0.40.b.jar                   |LowDragLib                    |ldlib                         |1.0.40.b            |DONE      |Manifest: NOSIGNATURE
+		jei-1.20.1-forge-15.20.0.115.jar                  |Just Enough Items             |jei                           |15.20.0.115         |DONE      |Manifest: NOSIGNATURE
+		gtceu-1.20.1-7.4.0-slim.jar                       |GregTech                      |gtceu                         |7.4.0               |DONE      |Manifest: NOSIGNATURE
+		main                                              |DiggyCore                     |diggycore                     |0.1.0               |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: bd59cb92-58bb-4013-b457-bcfd8688eeb9
+	FML: 47.4
+	Forge: net.minecraftforge:47.4.0

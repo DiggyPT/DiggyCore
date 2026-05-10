@@ -1,0 +1,54 @@
+{
+  "favorites": [],
+  "lookup_history": [
+    "item:gtceu:dubnium_ingot",
+    {
+      "type": "item",
+      "id": "gtceu:dough",
+      "amount": 2
+    },
+    {
+      "type": "item",
+      "id": "minecraft:sugar",
+      "amount": 9
+    },
+    "item:gtceu:sugar_block",
+    {
+      "type": "item",
+      "id": "gtceu:sugar_gem",
+      "amount": 9
+    },
+    "item:diggycore:quantum_coolant_block",
+    "item:gtceu:oganesson_dust",
+    "item:gtceu:reinforced_epoxy_resin_plate",
+    "item:gtceu:reinforced_epoxy_resin_ingot",
+    {
+      "type": "item",
+      "id": "gtceu:ingot_extruder_mold",
+      "chance": 0.0
+    },
+    "item:gtceu:epoxy_ingot",
+    "item:gtceu:palladium_dust",
+    "item:gtceu:palladium_ingot",
+    "item:gtceu:gravitation_engine_unit",
+    "item:gtceu:advanced_quarktech_chestplate{Charge:1000000000L}",
+    "item:gtceu:purple_dye_spray_can",
+    "item:gtceu:amethyst_plate",
+    "item:gtceu:fluid_tag_filter",
+    "item:gtceu:micro_processor",
+    {
+      "type": "fluid",
+      "id": "minecraft:water",
+      "amount": 20000
+    },
+    "item:ldlib:test"
+  ],
+  "craft_history": [],
+  "recipe_defaults": {
+    "added": [],
+    "tags": {},
+    "resolutions": {},
+    "disabled": []
+  },
+  "hidden_stacks": []
+}
