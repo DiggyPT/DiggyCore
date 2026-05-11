@@ -9,10 +9,15 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
+import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
 import com.gregtechceu.gtceu.common.item.TooltipBehavior;
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -28,6 +33,10 @@ import net.phoenix.diggycore.common.registry.DiggyRegistration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.function.Supplier;
+
+import static net.phoenix.diggycore.common.registry.DiggyRegistration.REGISTRATE;
+
 @Mod(DiggyCore.MOD_ID)
 @SuppressWarnings("removal")
 public class DiggyCore {
@@ -36,7 +45,19 @@ public class DiggyCore {
     public static final Logger LOGGER = LogManager.getLogger();
     public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(DiggyCore.MOD_ID);
 
+    public static RegistryEntry<CreativeModeTab> DIGGY_CREATIVE_TAB = REGISTRATE
+            .defaultCreativeTab(DiggyCore.MOD_ID,
+                    builder -> builder
+                            .displayItems(new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(DiggyCore.MOD_ID,
+                                    REGISTRATE))
+                            .title(REGISTRATE.addLang("itemGroup", DiggyCore.id("creative_tab"),
+                                    "DiggyCore"))
+                            .icon(() -> new ItemStack(Blocks.IRON_BLOCK))
+                            .build())
+            .register();
+
     public DiggyCore() {
+        init();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -86,7 +107,7 @@ public class DiggyCore {
     public static void init() {
         // Then register everything else.
         //PhoenixConfigs.init();
-        DiggyRegistration.REGISTRATE.registerRegistrate();
+        REGISTRATE.registerRegistrate();
         DiggyBlocks.init();
         //PhoenixItems.init();
         DiggyMaterialFlags.init();
@@ -97,7 +118,7 @@ public class DiggyCore {
      * Create a material manager for your mod using GT's API.
      * You MUST have this if you have custom materials.
      * Remember to register them not to GT's namespace, but your own.
-     * 
+     *
      * @param event
      */
     private void addMaterialRegistries(MaterialRegistryEvent event) {
@@ -107,7 +128,7 @@ public class DiggyCore {
     /**
      * You will also need this for registering custom materials
      * Call init() from your Material class(es) here
-     * 
+     *
      * @param event
      */
     private void addMaterials(MaterialEvent event) {
@@ -118,7 +139,7 @@ public class DiggyCore {
 
     /**
      * (Optional) Used to modify pre-existing materials from GregTech
-     * 
+     *
      * @param event
      */
     private void modifyMaterials(PostMaterialEvent event) {
@@ -128,7 +149,7 @@ public class DiggyCore {
     /**
      * Used to register your own new RecipeTypes.
      * Call init() from your RecipeType class(es) here
-     * 
+     *
      * @param event
      */
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
@@ -138,7 +159,7 @@ public class DiggyCore {
     /**
      * Used to register your own new machines.
      * Call init() from your Machine class(es) here
-     * 
+     *
      * @param event
      */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
@@ -148,7 +169,7 @@ public class DiggyCore {
     /**
      * Used to register your own new sounds
      * Call init from your Sound class(es) here
-     * 
+     *
      * @param event
      */
     public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {

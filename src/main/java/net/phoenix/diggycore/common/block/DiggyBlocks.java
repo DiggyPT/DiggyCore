@@ -16,7 +16,7 @@ public class DiggyBlocks {
 
     public static void init() {}
 
-    final BlockEntry<Block> ANTI_HIGGS_ROOM_FILTER_CASING = createCleanroomFilters(
+    public static final BlockEntry<Block> ANTI_HIGGS_ROOM_FILTER_CASING = createCleanroomFilters(
             AntiHiggsFilterType.FILTER_CASING_ANTI_HIGGS);
 
     private static BlockEntry<Block> createCleanroomFilters(IFilterType filterType) {

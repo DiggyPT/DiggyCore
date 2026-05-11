@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.phoenix.diggycore.common.data.materials.DiggyElements;
 
 import java.util.function.Consumer;
 
@@ -37,7 +38,7 @@ public class DiggyGTAddon implements IGTAddon {
 
     @Override
     public void registerElements() {
-        // CustomElements.init();
+        DiggyElements.init();
     }
 
     // If you have custom ingredient types, uncomment this & change to match your capability.

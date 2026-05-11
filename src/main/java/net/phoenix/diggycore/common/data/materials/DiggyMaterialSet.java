@@ -7,8 +7,7 @@ import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIcon
 
 public class DiggyMaterialSet {
     public static final MaterialIconType nanites = new MaterialIconType("nanites");
-    public static final MaterialIconSet DIDDYBLUD = new MaterialIconSet("diddyblud",
-            SHINY);
+    //public static final MaterialIconSet DIDDYBLUD = new MaterialIconSet("diddyblud", SHINY);
 
     public static void init() {}
 }

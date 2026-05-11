@@ -1,6 +1,7 @@
 {
   "favorites": [],
   "lookup_history": [
+    "item:diggycore:zircon_ingot",
     "item:gtceu:dubnium_ingot",
     {
       "type": "item",
@@ -18,7 +19,6 @@
       "id": "gtceu:sugar_gem",
       "amount": 9
     },
-    "item:diggycore:quantum_coolant_block",
     "item:gtceu:oganesson_dust",
     "item:gtceu:reinforced_epoxy_resin_plate",
     "item:gtceu:reinforced_epoxy_resin_ingot",
