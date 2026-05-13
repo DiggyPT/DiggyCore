@@ -1,6 +1,6 @@
 {
    "parent": "minecraft:block/cube_all",
    "textures": {
-      "all": "gtceu:block/casings/cleanroom/anti_higgs_filter_casing"
+      "all": "diggycore:block/casings/cleanroom/anti_higgs_filter_casing"
    }
 }

@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.registry.GTRegistries;
 
 public class DiggyElements {
 
+    //Periodic elements. (Integer atomic number)
     public static Element FEYNMANIUM;
     public static Element ARMSTRONGIUM;
     public static Element HAWKINE;
@@ -13,6 +14,12 @@ public class DiggyElements {
     public static Element SONYA;
     public static Element UNIFON;
     public static Element BOHEMIUM;
+    public static Element LUSITANIUM;
+    public static Element MAGRABIYAH;
+    public static Element NICOSIUM;
+
+    //Non-periodic elements. (Non-integer atomic number)
+    public static Element CUANDAY;
 
     public static void init() {
         FEYNMANIUM = create("feynmanium", 173L, 570L, -1L, null, "Feynmanium", "Fn", false);

@@ -1,0 +1,7 @@
+{
+   "parent": "minecraft:block/cube_column",
+   "textures": {
+      "end": "diggycore:block/greenhouse_dirt_poles",
+      "side": "diggycore:block/greenhouse_dirt_side"
+   }
+}
