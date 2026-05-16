@@ -6,6 +6,7 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.phoenix.diggycore.common.data.materials.DiggyElements;
+import net.phoenix.diggycore.common.registry.DiggyRegistration;
 
 import java.util.function.Consumer;
 
@@ -15,7 +16,7 @@ public class DiggyGTAddon implements IGTAddon {
 
     @Override
     public GTRegistrate getRegistrate() {
-        return DiggyCore.EXAMPLE_REGISTRATE;
+        return DiggyRegistration.REGISTRATE;
     }
 
     @Override

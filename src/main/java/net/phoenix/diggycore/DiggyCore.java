@@ -29,6 +29,7 @@ import net.phoenix.diggycore.common.block.DiggyBlocks;
 import net.phoenix.diggycore.common.data.materials.DiggyMaterialFlags;
 import net.phoenix.diggycore.common.data.materials.DiggyMaterials;
 import net.phoenix.diggycore.common.data.materials.ElementMaterials;
+import net.phoenix.diggycore.common.machine.DiggyMachines;
 import net.phoenix.diggycore.common.registry.DiggyRegistration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,7 +44,7 @@ public class DiggyCore {
 
     public static final String MOD_ID = "diggycore";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(DiggyCore.MOD_ID);
+    //public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(DiggyCore.MOD_ID);
 
     public static RegistryEntry<CreativeModeTab> DIGGY_CREATIVE_TAB = REGISTRATE
             .defaultCreativeTab(DiggyCore.MOD_ID,
@@ -76,7 +77,7 @@ public class DiggyCore {
         // we need to register our object like this!
         MinecraftForge.EVENT_BUS.register(this);
 
-        EXAMPLE_REGISTRATE.registerRegistrate();
+        //EXAMPLE_REGISTRATE.registerRegistrate();
     }
 
     public static ResourceLocation resourceLocation(String path) {
@@ -163,7 +164,7 @@ public class DiggyCore {
      * @param event
      */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
-        // CustomMachines.init();
+        DiggyMachines.init();
     }
 
     /**

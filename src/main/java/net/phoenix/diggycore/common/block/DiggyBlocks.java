@@ -81,5 +81,5 @@ public class DiggyBlocks {
 
     public static BlockEntry<Block> GREENHOUSE_CASING = registerSimpleBlock(
             "Greenhouse Casing", "greenhouse_casing",
-            "greenhouse_casing", BlockItem::new);
+            "casings/greenhouse_casing", BlockItem::new);
 }
