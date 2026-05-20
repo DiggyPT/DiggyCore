@@ -6,12 +6,9 @@ import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEv
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
-import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
-
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
-import com.gregtechceu.gtceu.common.item.TooltipBehavior;
-import com.tterrag.registrate.util.entry.RegistryEntry;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -24,17 +21,16 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-
 import net.phoenix.diggycore.common.block.DiggyBlocks;
 import net.phoenix.diggycore.common.data.materials.DiggyMaterialFlags;
 import net.phoenix.diggycore.common.data.materials.DiggyMaterials;
 import net.phoenix.diggycore.common.data.materials.ElementMaterials;
+import net.phoenix.diggycore.common.item.DiggyItems;
 import net.phoenix.diggycore.common.machine.DiggyMachines;
-import net.phoenix.diggycore.common.registry.DiggyRegistration;
+
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.function.Supplier;
 
 import static net.phoenix.diggycore.common.registry.DiggyRegistration.REGISTRATE;
 
@@ -44,7 +40,7 @@ public class DiggyCore {
 
     public static final String MOD_ID = "diggycore";
     public static final Logger LOGGER = LogManager.getLogger();
-    //public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(DiggyCore.MOD_ID);
+    // public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(DiggyCore.MOD_ID);
 
     public static RegistryEntry<CreativeModeTab> DIGGY_CREATIVE_TAB = REGISTRATE
             .defaultCreativeTab(DiggyCore.MOD_ID,
@@ -77,7 +73,7 @@ public class DiggyCore {
         // we need to register our object like this!
         MinecraftForge.EVENT_BUS.register(this);
 
-        //EXAMPLE_REGISTRATE.registerRegistrate();
+        // EXAMPLE_REGISTRATE.registerRegistrate();
     }
 
     public static ResourceLocation resourceLocation(String path) {
@@ -107,12 +103,12 @@ public class DiggyCore {
 
     public static void init() {
         // Then register everything else.
-        //PhoenixConfigs.init();
+        // PhoenixConfigs.init();
         REGISTRATE.registerRegistrate();
         DiggyBlocks.init();
-        //PhoenixItems.init();
+        DiggyItems.init();
         DiggyMaterialFlags.init();
-        //PhoenixDatagen.init();
+        // PhoenixDatagen.init();
     }
 
     /**

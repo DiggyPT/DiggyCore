@@ -8,19 +8,20 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_DENSE;
 
 public class DiggyMaterialFlags {
-    public static final MaterialFlag GENERATE_NANITES = new MaterialFlag.Builder("generate_nanites")
+
+    public static final MaterialFlag GENERATE_VIAL = new MaterialFlag.Builder("generate_vial")
             .requireFlags(GENERATE_DENSE).requireProps(PropertyKey.DUST).build();
 
-    public static final TagPrefix nanites = new TagPrefix("nanites")
-            .idPattern("%s_nanites")
-            .defaultTagPath("nanites/%s")
-            .unformattedTagPath("nanites")
-            .langValue("%s Nanites")
+    public static final TagPrefix vial = new TagPrefix("vial")
+            .idPattern("%s_vial")
+            .defaultTagPath("vial/%s")
+            .unformattedTagPath("vial")
+            .langValue("%s Vial")
             .materialAmount(GTValues.M / 4)
             .unificationEnabled(true)
             .generateItem(true)
-            .materialIconType(DiggyMaterialSet.nanites)
-            .generationCondition(mat -> mat.hasFlag(DiggyMaterialFlags.GENERATE_NANITES));
+            .materialIconType(DiggyMaterialSet.vial)
+            .generationCondition(mat -> mat.hasFlag(DiggyMaterialFlags.GENERATE_VIAL));
 
     public static void init() {}
 }

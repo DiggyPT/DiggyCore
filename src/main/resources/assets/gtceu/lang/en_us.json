@@ -4,6 +4,12 @@
    "material.diggycore.hawkine": "Hawkine",
    "material.diggycore.keplerum": "Keplerum",
    "material.diggycore.belusovium": "Belusovium",
+   "material.diggycore.sonya": "Sonya",
+   "material.diggycore.unifon": "Unifon",
+   "material.diggycore.bohemium": "Bohemium",
+   "material.diggycore.lusitanium": "Lusitanium",
+   "material.diggycore.magrabiyah": "Magrabiyah",
+   "material.diggycore.nicosium": "Nicosium",
    "material.diggycore.conductive_mixed_salts_alloy": "Conductive Mixed-Salts Alloy",
    "material.diggycore.conductive_mixed_salts_compound": "Conductive Mixed-Salts Compound",
    "material.diggycore.ceramic_steel": "Ceramic Steel",
@@ -87,5 +93,5 @@
    "block.gtceu.bio_reactor": "Bio-Reactor",
    "gtceu.bio_reactor": "Bio-Reaction",
 
-   "tagprefix.nanites": "%s Nanites"
+   "tagprefix.vial": "%s Vial"
 }

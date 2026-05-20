@@ -2,8 +2,10 @@ package net.phoenix.diggycore.common.block;
 
 import com.gregtechceu.gtceu.api.block.IFilterType;
 import com.gregtechceu.gtceu.api.machine.multiblock.CleanroomType;
-import lombok.Getter;
+
 import net.phoenix.diggycore.common.machine.multiblock.AntiHiggsRoom;
+
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 public enum AntiHiggsFilterType implements IFilterType {

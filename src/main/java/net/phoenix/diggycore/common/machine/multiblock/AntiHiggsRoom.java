@@ -1,9 +1,11 @@
 package net.phoenix.diggycore.common.machine.multiblock;
 
 import com.gregtechceu.gtceu.api.machine.multiblock.CleanroomType;
+
 import org.jetbrains.annotations.NotNull;
 
 public class AntiHiggsRoom extends CleanroomType {
+
     // This public static final instance ensures the constructor is called
     // when the class is loaded, which registers the new cleanroom type
     // with GTCEu's CleanroomType system.

@@ -1,6 +1,6 @@
 package net.phoenix.diggycore.common.machine.multiblock.electric;
 
-import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.MultiblockDisplayText;
@@ -14,33 +14,38 @@ import com.gregtechceu.gtceu.api.recipe.modifier.ParallelLogic;
 import com.gregtechceu.gtceu.api.recipe.modifier.RecipeModifier;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.fluids.FluidStack;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class Greenhouse extends WorkableElectricMultiblockMachine {
+
     private static final FluidStack NITROGEN_STACK = GTMaterials.Nitrogen.getFluid(1);
 
+    private int runningTimer = 0;
     private int nitrogenAmount = 0;
 
     public Greenhouse(IMachineBlockEntity holder, Object... args) {
         super(holder, args);
     }
 
-    //GUI
+    // GUI
     @Override
     public void addDisplayText(List<Component> textList) {
         MultiblockDisplayText.Builder builder = MultiblockDisplayText.builder(textList, isFormed())
                 .setWorkingStatus(recipeLogic.isWorkingEnabled(), recipeLogic.isActive());
         builder.addWorkingStatusLine();
-        textList.add(Component.literal("Nitrogen percentage: ").withStyle(ChatFormatting.GREEN).append(Integer.toString(nitrogenAmount * 10)).append("%"));
+        textList.add(Component.literal("Nitrogen percentage: ").withStyle(ChatFormatting.GREEN)
+                .append(Integer.toString(nitrogenAmount * 10)).append("%"));
         textList.add(Component.literal(progressBar(nitrogenAmount)).withStyle(ChatFormatting.GREEN));
     }
 
-    //Returns the appropriate character for a progress bar
+    // Returns the appropriate character for a progress bar
     public String progressBarComponent(int amount, int index) {
         if (amount > index) {
             return "#";
@@ -49,7 +54,7 @@ public class Greenhouse extends WorkableElectricMultiblockMachine {
         }
     }
 
-    //Returns a progress bar
+    // Returns a progress bar
     public String progressBar(int amount) {
         StringBuilder bar = new StringBuilder();
         for (int i = 1; i < 10; i++) {
@@ -81,5 +86,27 @@ public class Greenhouse extends WorkableElectricMultiblockMachine {
 
     protected GTRecipe getNitrogenRecipe() {
         return GTRecipeBuilder.ofRaw().inputFluids(NITROGEN_STACK).buildRawRecipe();
+    }
+
+    @Override
+    public boolean onWorking() {
+        boolean value = super.onWorking();
+        // check lubricant
+
+        if (runningTimer % 72 == 0) {
+            // insufficient lubricant
+            if (!RecipeHelper.handleRecipeIO(this, getNitrogenRecipe(), IO.IN, this.recipeLogic.getChanceCaches())
+                    .isSuccess()) {
+                recipeLogic.interruptRecipe();
+                return false;
+            } else if (nitrogenAmount < 10) {
+                nitrogenAmount += 1;
+            }
+        }
+
+        runningTimer++;
+        if (runningTimer > 72000) runningTimer %= 72000; // reset once every hour of running
+
+        return value;
     }
 }

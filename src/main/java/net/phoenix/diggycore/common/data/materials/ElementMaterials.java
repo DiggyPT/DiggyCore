@@ -1,13 +1,12 @@
 package net.phoenix.diggycore.common.data.materials;
 
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
 import static com.gregtechceu.gtceu.common.data.GTMaterials.Dysprosium;
-import static com.gregtechceu.gtceu.common.data.GTMaterials.Iron;
 
 public class ElementMaterials {
+
     public static void register() {
         GTMaterials.Dysprosium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Praseodymium.setProperty(PropertyKey.INGOT, new IngotProperty());
@@ -22,13 +21,13 @@ public class ElementMaterials {
         GTMaterials.Rubidium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Rhenium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Strontium.setProperty(PropertyKey.INGOT, new IngotProperty());
-        GTMaterials.Zirconium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        // GTMaterials.Zirconium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Thallium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Polonium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Radium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Technetium.setProperty(PropertyKey.INGOT, new IngotProperty());
-        GTMaterials.Hafnium.setProperty(PropertyKey.INGOT, new IngotProperty());
-        //Actinides and lanthanides
+        // GTMaterials.Hafnium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        // Actinides and lanthanides
         GTMaterials.Actinium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Curium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Berkelium.setProperty(PropertyKey.INGOT, new IngotProperty());
@@ -43,7 +42,7 @@ public class ElementMaterials {
         GTMaterials.Nobelium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Lawrencium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Promethium.setProperty(PropertyKey.INGOT, new IngotProperty());
-        //Superheavy elements (period 7)
+        // Superheavy elements (period 7)
         GTMaterials.Rutherfordium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Dubnium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Seaborgium.setProperty(PropertyKey.INGOT, new IngotProperty());
@@ -59,7 +58,7 @@ public class ElementMaterials {
         GTMaterials.Tennessine.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Francium.setProperty(PropertyKey.DUST, new DustProperty());
         GTMaterials.Astatine.setProperty(PropertyKey.DUST, new DustProperty());
-        //GTMaterials.Oganesson.setProperty(PropertyKey.FLUID, new FluidProperty());
+        // GTMaterials.Oganesson.setProperty(PropertyKey.FLUID, new FluidProperty());
         GTMaterials.Oganesson.setProperty(PropertyKey.WOOD, new WoodProperty());
     }
 

@@ -3,30 +3,33 @@ package net.phoenix.diggycore.common.machine;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
-import com.gregtechceu.gtceu.api.machine.multiblock.CoilWorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
 import com.gregtechceu.gtceu.common.data.*;
+import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
+import com.gregtechceu.gtceu.config.ConfigHolder;
+
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.phoenix.diggycore.DiggyCore;
+import net.minecraftforge.fluids.FluidType;
 import net.phoenix.diggycore.api.machine.DiggyPartAbility;
 import net.phoenix.diggycore.common.machine.multiblock.electric.Greenhouse;
 import net.phoenix.diggycore.common.machine.multiblock.part.AgronomyInputHatch;
-import com.gregtechceu.gtceu.api.capability.recipe.IO;
+import net.phoenix.diggycore.common.machine.multiblock.steam.SteamLunarBoiler;
+
+import it.unimi.dsi.fastutil.Pair;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -38,7 +41,7 @@ import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_INVAR_HEATPROOF;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeModifiers.BATCH_MODE;
-import static com.gregtechceu.gtceu.common.data.GTRecipeModifiers.OC_NON_PERFECT_SUBTICK;
+import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.STEAM_BOILER_RECIPES;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.ELECTRIC_TIERS;
 import static net.phoenix.diggycore.common.registry.DiggyRegistration.REGISTRATE;
 
@@ -95,7 +98,7 @@ public class DiggyMachines {
                             .or(autoAbilities(true, false, false)))
                     .where('M', abilities(PartAbility.MUFFLER))
                     .where('C', heatingCoils())
-                    .where('#', air())
+                    .where('#', Predicates.air())
                     .build())
             .shapeInfos(definition -> {
                 List<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
@@ -122,13 +125,24 @@ public class DiggyMachines {
                             GTMaterialItems.MATERIAL_ITEMS.get(TagPrefix.dustTiny, GTMaterials.Ash).get() })
             .workableCasingModel(GTCEu.id("block/casings/solid/machine_casing_heatproof"),
                     GTCEu.id("block/multiblock/multi_furnace"))
-            .additionalDisplay((controller, components) -> {
-                if (controller instanceof CoilWorkableElectricMultiblockMachine coilMachine && controller.isFormed()) {
-                    components.add(Component.translatable("gtceu.multiblock.multi_furnace.heating_coil_level",
-                            coilMachine.getCoilType().getLevel()));
-                    components.add(Component.translatable("gtceu.multiblock.multi_furnace.heating_coil_discount",
-                            coilMachine.getCoilType().getEnergyDiscount()));
-                }
-            })
             .register();
+
+    public static final Pair<MachineDefinition, MachineDefinition> STEAM_LUNAR_BOILER = registerSteamMachines(
+            "steam_lunar_boiler",
+            SteamLunarBoiler::new,
+            (pressure, builder) -> builder.rotationState(RotationState.NON_Y_AXIS)
+                    .recipeType(STEAM_BOILER_RECIPES)
+                    .recipeModifier(SteamLunarBoiler::recipeModifier)
+                    .workableSteamHullModel(pressure, GTCEu.id("block/generators/boiler/solar"))
+                    .tooltips(Component.translatable("gtceu.universal.tooltip.produces_fluid",
+                            (pressure ? ConfigHolder.INSTANCE.machines.smallBoilers.hpSolarBoilerBaseOutput :
+                                    ConfigHolder.INSTANCE.machines.smallBoilers.solarBoilerBaseOutput) *
+                                    FluidType.BUCKET_VOLUME / 20000))
+                    .register());
+
+    public static Pair<MachineDefinition, MachineDefinition> registerSteamMachines(String name,
+                                                                                   BiFunction<IMachineBlockEntity, Boolean, MetaMachine> factory,
+                                                                                   BiFunction<Boolean, MachineBuilder<MachineDefinition>, MachineDefinition> builder) {
+        return GTMachineUtils.registerSteamMachines(REGISTRATE, name, factory, builder);
+    }
 }
