@@ -3,6 +3,7 @@ package net.phoenix.diggycore.common.data.materials;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.Dysprosium;
 
 public class ElementMaterials {

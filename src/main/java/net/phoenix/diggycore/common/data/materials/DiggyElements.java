@@ -20,6 +20,7 @@ public class DiggyElements {
 
     // Non-periodic elements. (Non-integer atomic number)
     public static Element CUANDAY;
+    public static Element CUANDAY_QUAY;
 
     public static void init() {
         // Neutron amount: n = 0.12522539p^2 - 29.278236p + 1887.26392
@@ -34,6 +35,8 @@ public class DiggyElements {
         LUSITANIUM = create("lusitanium", 139L, -1L, null, "Lusitanium", "L", false);
         MAGRABIYAH = create("magrabiyah", 140L, -1L, null, "Magrabiyah", "Ma", false);
         NICOSIUM = create("nicosium", 141L, -1L, null, "Nicosium", "Ns", false);
+
+        CUANDAY = create("cuanday", 23L, 26L, -1L, null, "Cuanday", "Cn", false);
     }
 
     private static Element create(String name, long protons, long neutrons, String symbol) {
@@ -59,8 +62,8 @@ public class DiggyElements {
     }
 
     private static long protonsToNeutrons(long protons) {
-        return (long) Math.floor(0.12522539 * (protons ^ 2) - 29.278236 * (protons) + 1887.26392); // this is the output
-                                                                                                   // of a linear
+        return (long) Math.floor(0.12522539 * (protons ^ 2) - 29.278236 * (protons) + 1887.26392); // this is the
+                                                                                                   // outputof a linear
                                                                                                    // regression
     }
 }

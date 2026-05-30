@@ -25,7 +25,7 @@ import java.util.List;
 
 public class Greenhouse extends WorkableElectricMultiblockMachine {
 
-    private static final FluidStack NITROGEN_STACK = GTMaterials.Nitrogen.getFluid(1);
+    private static final FluidStack NITROGEN_STACK = GTMaterials.Nitrogen.getFluid(1000);
 
     private int runningTimer = 0;
     private int nitrogenAmount = 0;
@@ -47,7 +47,7 @@ public class Greenhouse extends WorkableElectricMultiblockMachine {
 
     // Returns the appropriate character for a progress bar
     public String progressBarComponent(int amount, int index) {
-        if (amount > index) {
+        if (amount >= index) {
             return "#";
         } else {
             return " ";

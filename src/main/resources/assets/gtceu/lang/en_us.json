@@ -93,5 +93,8 @@
    "block.gtceu.bio_reactor": "Bio-Reactor",
    "gtceu.bio_reactor": "Bio-Reaction",
 
-   "tagprefix.vial": "%s Vial"
+   "tagprefix.vial": "%s Vial",
+   "tagprefix.double_ingot": "Double %s Ingot",
+   "tagprefix.bee": "%s Bee",
+   "tagprefix.comb": "%s Comb"
 }

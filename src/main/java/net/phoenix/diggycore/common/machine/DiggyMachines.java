@@ -1,11 +1,9 @@
 package net.phoenix.diggycore.common.machine;
 
 import com.gregtechceu.gtceu.GTCEu;
-import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
 import com.gregtechceu.gtceu.api.data.RotationState;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;
@@ -14,35 +12,41 @@ import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
 import com.gregtechceu.gtceu.common.data.*;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
+import com.gregtechceu.gtceu.common.registry.GTRegistration;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 
+import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fluids.FluidType;
+import net.phoenix.diggycore.DiggyCore;
 import net.phoenix.diggycore.api.machine.DiggyPartAbility;
+import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
 import net.phoenix.diggycore.common.machine.multiblock.electric.Greenhouse;
 import net.phoenix.diggycore.common.machine.multiblock.part.AgronomyInputHatch;
 import net.phoenix.diggycore.common.machine.multiblock.steam.SteamLunarBoiler;
 
 import it.unimi.dsi.fastutil.Pair;
+import net.phoenix.diggycore.common.registry.DiggyRegistration;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.BiFunction;
 
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
-import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_INVAR_HEATPROOF;
+import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeModifiers.BATCH_MODE;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.STEAM_BOILER_RECIPES;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.ELECTRIC_TIERS;
+import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.registerSimpleMachines;
+import static net.phoenix.diggycore.common.block.DiggyBlocks.*;
 import static net.phoenix.diggycore.common.registry.DiggyRegistration.REGISTRATE;
 
 public class DiggyMachines {
@@ -66,7 +70,7 @@ public class DiggyMachines {
 
     public static MachineDefinition[] registerTieredMachines(String name,
                                                              BiFunction<IMachineBlockEntity, Integer, MetaMachine> factory,
-                                                             BiFunction<Integer, MachineBuilder<MachineDefinition>, MachineDefinition> builder,
+                                                             BiFunction<Integer, MachineBuilder<MachineDefinition, ?>, MachineDefinition> builder,
                                                              int... tiers) {
         MachineDefinition[] definitions = new MachineDefinition[GTValues.TIER_COUNT];
         for (int tier : tiers) {
@@ -83,47 +87,52 @@ public class DiggyMachines {
             .multiblock("greenhouse", Greenhouse::new)
             .rotationState(RotationState.ALL)
             .recipeTypes(GTRecipeTypes.FURNACE_RECIPES, GTRecipeTypes.ALLOY_SMELTER_RECIPES)
-            .recipeModifiers(GTRecipeModifiers::multiSmelterParallel, BATCH_MODE)
-            .appearanceBlock(CASING_INVAR_HEATPROOF)
-            .tooltips(Component.translatable("gtceu.machine.available_recipe_map_2.tooltip",
-                    Component.translatable("gtceu.electric_furnace"), Component.translatable("gtceu.alloy_smelter")))
+            .recipeModifiers(Greenhouse::recipeModifier)
+            .appearanceBlock(GREENHOUSE_CASING)
+            .blockModel(NonNullBiConsumer.noop())
+            .tooltips(Component.literal("A green Solution to your Problems"),
+                    Component.literal("Control the environment inside by pumping in fluids / items through the Agronomy Hatch."))
             .pattern(definition -> FactoryBlockPattern.start()
-                    .aisle("XXX", "CCC", "XXX")
-                    .aisle("XXX", "C#C", "XMX")
-                    .aisle("XSX", "CCC", "XXX")
+                    .aisle("FFFFFFF", "F#####F", "F#####F", "F#####F", "#######", "#######")
+                    .aisle("FXXXXXF", "#CCCCC#", "#CCCCC#", "#CCCCC#", "#FXXXF#", "##F####")
+                    .aisle("FXXXXXF", "#CGGGX#", "#C###X#", "#C###X#", "#XCCCX#", "###F#F#")
+                    .aisle("FXXXXXF", "#CGGGX#", "#C###X#", "#C###X#", "#XCCCX#", "##FFF##")
+                    .aisle("FXXXXXF", "#CGGGX#", "#C###X#", "#C###X#", "#XCCCX#", "#F#F###")
+                    .aisle("FXXSXXF", "#CCCCC#", "#CCCCC#", "#CCCCC#", "#FXXXF#", "####F##")
+                    .aisle("F#####F", "F#####F", "F#####F", "F#####F", "#######", "#######")
                     .where('S', controller(blocks(definition.get())))
-                    .where('X', blocks(CASING_INVAR_HEATPROOF.get()).setMinGlobalLimited(9)
+                    .where('X', blocks(GREENHOUSE_CASING.get()).setMinGlobalLimited(9)
                             .or(autoAbilities(definition.getRecipeTypes()))
                             .or(abilities(DiggyPartAbility.AGRONOMY_INPUT).setExactLimit(1))
                             .or(autoAbilities(true, false, false)))
                     .where('M', abilities(PartAbility.MUFFLER))
-                    .where('C', heatingCoils())
-                    .where('#', Predicates.air())
+                    .where('C', blocks(CASING_TEMPERED_GLASS.get()))
+                    .where('G', blocks(GREENHOUSE_DIRT.get()))
+                    .where('F', Predicates.frames(GTMaterials.StainlessSteel))
+                    .where('#', Predicates.any())
                     .build())
             .shapeInfos(definition -> {
                 List<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
                 var builder = MultiblockShapeInfo.builder()
-                        .aisle("ISO", "CCC", "XMX")
-                        .aisle("XXX", "C#C", "XHX")
-                        .aisle("EEX", "CCC", "XXX")
+                        .aisle("FFFFFFF", "F#####F", "F#####F", "F#####F", "#######", "#######")
+                        .aisle("FEEXXXF", "#CCCCC#", "#CCCCC#", "#CCCCC#", "#FXXXF#", "##F####")
+                        .aisle("FXXXXXF", "#CGGGX#", "#C###X#", "#C###X#", "#XCCCX#", "###F#F#")
+                        .aisle("FXXXXXF", "#CGGGX#", "#C###X#", "#C###X#", "#XCCCX#", "##FFF##")
+                        .aisle("FXXXXXF", "#CGGGX#", "#C###X#", "#C###X#", "#XCCCX#", "#F#F###")
+                        .aisle("FMISOXF", "#CCCCC#", "#CCCCC#", "#CCCCC#", "#FXXXF#", "####F##")
+                        .aisle("F#####F", "F#####F", "F#####F", "F#####F", "#######", "#######")
                         .where('S', definition, Direction.NORTH)
-                        .where('X', CASING_INVAR_HEATPROOF.getDefaultState())
                         .where('E', ENERGY_INPUT_HATCH[GTValues.LV], Direction.SOUTH)
                         .where('I', ITEM_IMPORT_BUS[GTValues.LV], Direction.NORTH)
                         .where('O', ITEM_EXPORT_BUS[GTValues.LV], Direction.NORTH)
-                        .where('H', MUFFLER_HATCH[GTValues.LV], Direction.SOUTH)
                         .where('M', MAINTENANCE_HATCH, Direction.NORTH)
+                        .where('X', GREENHOUSE_CASING)
+                        .where('C', CASING_TEMPERED_GLASS)
+                        .where('G', GREENHOUSE_DIRT)
                         .where('#', Blocks.AIR.defaultBlockState());
-                GTCEuAPI.HEATING_COILS.entrySet().stream()
-                        .sorted(Comparator.comparingInt(entry -> entry.getKey().getTier()))
-                        .forEach(
-                                coil -> shapeInfo.add(builder.shallowCopy().where('C', coil.getValue().get()).build()));
                 return shapeInfo;
             })
-            .recoveryItems(
-                    () -> new ItemLike[] {
-                            GTMaterialItems.MATERIAL_ITEMS.get(TagPrefix.dustTiny, GTMaterials.Ash).get() })
-            .workableCasingModel(GTCEu.id("block/casings/solid/machine_casing_heatproof"),
+            .workableCasingModel(DiggyCore.id("block/casings/greenhouse_casing"),
                     GTCEu.id("block/multiblock/multi_furnace"))
             .register();
 
@@ -138,11 +147,15 @@ public class DiggyMachines {
                             (pressure ? ConfigHolder.INSTANCE.machines.smallBoilers.hpSolarBoilerBaseOutput :
                                     ConfigHolder.INSTANCE.machines.smallBoilers.solarBoilerBaseOutput) *
                                     FluidType.BUCKET_VOLUME / 20000))
+                    .blockModel(NonNullBiConsumer.noop()) //dont datagen the model pls
                     .register());
 
     public static Pair<MachineDefinition, MachineDefinition> registerSteamMachines(String name,
                                                                                    BiFunction<IMachineBlockEntity, Boolean, MetaMachine> factory,
-                                                                                   BiFunction<Boolean, MachineBuilder<MachineDefinition>, MachineDefinition> builder) {
+                                                                                   BiFunction<Boolean, MachineBuilder<MachineDefinition, ?>, MachineDefinition> builder) {
         return GTMachineUtils.registerSteamMachines(REGISTRATE, name, factory, builder);
     }
+
+    public static final MachineDefinition[] APIARY = registerSimpleMachines(DiggyRegistration.REGISTRATE, "apiary",
+            DiggyRecipeTypes.APIARY_RECIPES);
 }

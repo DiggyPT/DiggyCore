@@ -22,8 +22,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.phoenix.diggycore.common.block.DiggyBlocks;
+import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
+import net.phoenix.diggycore.common.data.materials.BioChemMaterials;
 import net.phoenix.diggycore.common.data.materials.DiggyMaterialFlags;
-import net.phoenix.diggycore.common.data.materials.DiggyMaterials;
+import net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags;
 import net.phoenix.diggycore.common.data.materials.ElementMaterials;
 import net.phoenix.diggycore.common.item.DiggyItems;
 import net.phoenix.diggycore.common.machine.DiggyMachines;
@@ -130,8 +132,9 @@ public class DiggyCore {
      */
     private void addMaterials(MaterialEvent event) {
         // CustomMaterials.init();
-        DiggyMaterials.register();
+        DiggyNewElementsAndAddFlags.register();
         ElementMaterials.register();
+        BioChemMaterials.register();
     }
 
     /**
@@ -140,7 +143,7 @@ public class DiggyCore {
      * @param event
      */
     private void modifyMaterials(PostMaterialEvent event) {
-        DiggyMaterials.modifyMaterials();
+        DiggyNewElementsAndAddFlags.modifyMaterials();
     }
 
     /**
@@ -150,7 +153,7 @@ public class DiggyCore {
      * @param event
      */
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
-        // CustomRecipeTypes.init();
+        DiggyRecipeTypes.init();
     }
 
     /**
