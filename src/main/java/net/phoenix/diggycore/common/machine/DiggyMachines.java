@@ -12,14 +12,11 @@ import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.MultiblockShapeInfo;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
-import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
 import com.gregtechceu.gtceu.common.data.*;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
-import com.gregtechceu.gtceu.common.registry.GTRegistration;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 
-import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Blocks;
@@ -30,9 +27,10 @@ import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
 import net.phoenix.diggycore.common.machine.multiblock.electric.Greenhouse;
 import net.phoenix.diggycore.common.machine.multiblock.part.AgronomyInputHatch;
 import net.phoenix.diggycore.common.machine.multiblock.steam.SteamLunarBoiler;
-
-import it.unimi.dsi.fastutil.Pair;
 import net.phoenix.diggycore.common.registry.DiggyRegistration;
+
+import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
+import it.unimi.dsi.fastutil.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +40,6 @@ import java.util.function.BiFunction;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.*;
 import static com.gregtechceu.gtceu.common.data.GTMachines.*;
-import static com.gregtechceu.gtceu.common.data.GTRecipeModifiers.BATCH_MODE;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.STEAM_BOILER_RECIPES;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.ELECTRIC_TIERS;
 import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.registerSimpleMachines;
@@ -91,7 +88,8 @@ public class DiggyMachines {
             .appearanceBlock(GREENHOUSE_CASING)
             .blockModel(NonNullBiConsumer.noop())
             .tooltips(Component.literal("A green Solution to your Problems"),
-                    Component.literal("Control the environment inside by pumping in fluids / items through the Agronomy Hatch."))
+                    Component.literal(
+                            "Control the environment inside by pumping in fluids / items through the Agronomy Hatch."))
             .pattern(definition -> FactoryBlockPattern.start()
                     .aisle("FFFFFFF", "F#####F", "F#####F", "F#####F", "#######", "#######")
                     .aisle("FXXXXXF", "#CCCCC#", "#CCCCC#", "#CCCCC#", "#FXXXF#", "##F####")
@@ -147,7 +145,7 @@ public class DiggyMachines {
                             (pressure ? ConfigHolder.INSTANCE.machines.smallBoilers.hpSolarBoilerBaseOutput :
                                     ConfigHolder.INSTANCE.machines.smallBoilers.solarBoilerBaseOutput) *
                                     FluidType.BUCKET_VOLUME / 20000))
-                    .blockModel(NonNullBiConsumer.noop()) //dont datagen the model pls
+                    .blockModel(NonNullBiConsumer.noop()) // dont datagen the model pls
                     .register());
 
     public static Pair<MachineDefinition, MachineDefinition> registerSteamMachines(String name,

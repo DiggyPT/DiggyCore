@@ -2,6 +2,8 @@ package net.phoenix.diggycore.common.data.materials;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 
 import net.phoenix.diggycore.DiggyCore;
@@ -9,6 +11,7 @@ import net.phoenix.diggycore.DiggyCore;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static net.phoenix.diggycore.common.data.materials.DiggyMaterialFlags.*;
+import static net.phoenix.diggycore.common.data.materials.DiggyMetallurgicAndGems.*;
 
 public class DiggyNewElementsAndAddFlags {
 
@@ -229,10 +232,140 @@ public class DiggyNewElementsAndAddFlags {
         addBasicFlags(Francium);
         addBasicFlags(Astatine);
 
-        //BEES
-        addBeeFlags(Goethite);
-        addBeeFlags(Chalcopyrite);
+        // AHHHHHHHHHHHHHHHHHHHHHHHHHH
+        addBeeFlags(Iron);
+        addBeeFlags(Copper);
+        addBeeFlags(Gold);
         addBeeFlags(Cassiterite);
+        addBeeFlags(Trona);
+        addBeeFlags(Ruby);
+        addBeeFlags(Stibnite);
+        addBeeFlags(BlueTopaz);
+        addBeeFlags(RockSalt);
+        addBeeFlags(Tantalite);
+        addBeeFlags(Sphalerite);
+        addBeeFlags(Garnierite);
+        addBeeFlags(Spessartine);
+        addBeeFlags(Chalcocite);
+        addBeeFlags(Asbestos);
+        addBeeFlags(GlauconiteSand);
+        addBeeFlags(Quartzite);
+        addBeeFlags(Thorium);
+        addBeeFlags(GraniticMineralSand);
+        addBeeFlags(Cinnabar);
+        addBeeFlags(Lazurite);
+        addBeeFlags(Pyrope);
+        addBeeFlags(Kyanite);
+        addBeeFlags(BasalticMineralSand);
+        addBeeFlags(Pitchblende);
+        addBeeFlags(Cobalt);
+        addBeeFlags(Topaz);
         addBeeFlags(Graphite);
+        addBeeFlags(Neodymium);
+        addBeeFlags(GarnetRed);
+        addBeeFlags(Lithium);
+        addBeeFlags(Chalcopyrite);
+        addBeeFlags(TricalciumPhosphate);
+        addBeeFlags(Palladium);
+        addBeeFlags(Pollucite);
+        addBeeFlags(Amethyst);
+        addBeeFlags(Alunite);
+        addBeeFlags(Beryllium);
+        addBeeFlags(Wulfenite);
+        addBeeFlags(Barite);
+        addBeeFlags(Opal);
+        addBeeFlags(Pyrochlore);
+        addBeeFlags(Oilsands);
+        addBeeFlags(Coal);
+        addBeeFlags(Electrotine);
+        addBeeFlags(Pyrite);
+        addBeeFlags(Tungstate);
+        addBeeFlags(Chromite);
+        addBeeFlags(Saltpeter);
+        addBeeFlags(Apatite);
+        addBeeFlags(Redstone);
+        addBeeFlags(Soapstone);
+        addBeeFlags(Ilmenite);
+        addBeeFlags(Olivine);
+        addBeeFlags(Scheelite);
+        addBeeFlags(Lead);
+        addBeeFlags(Emerald);
+        addBeeFlags(Diatomite);
+        addBeeFlags(Molybdenum);
+        addBeeFlags(FullersEarth);
+        addBeeFlags(Bentonite);
+        addBeeFlags(Magnesite);
+        addBeeFlags(Limonite);
+        addBeeFlags(Cooperite);
+        addBeeFlags(Powellite);
+        addBeeFlags(Sodalite);
+        addBeeFlags(Calcite);
+        addBeeFlags(Almandine);
+        addBeeFlags(Gypsum);
+        addBeeFlags(Naquadah);
+        addBeeFlags(Magnetite);
+        addBeeFlags(VanadiumMagnetite);
+        addBeeFlags(Diamond);
+        addBeeFlags(Bauxite);
+        addBeeFlags(Zeolite);
+        addBeeFlags(Aluminium);
+        addBeeFlags(Plutonium239);
+        addBeeFlags(CassiteriteSand);
+        addBeeFlags(Sulfur);
+        addBeeFlags(Hematite);
+        addBeeFlags(Pyrolusite);
+        addBeeFlags(Galena);
+        addBeeFlags(GarnetYellow);
+        addBeeFlags(Mica);
+        addBeeFlags(Platinum);
+        addBeeFlags(Nickel);
+        addBeeFlags(Salt);
+        addBeeFlags(Spodumene);
+        addBeeFlags(Lapis);
+        addBeeFlags(GarnetSand);
+        addBeeFlags(Uraninite);
+        addBeeFlags(Molybdenite);
+        addBeeFlags(Lepidolite);
+        addBeeFlags(Talc);
+        addBeeFlags(Realgar);
+        addBeeFlags(GreenSapphire);
+        addBeeFlags(Bastnasite);
+        addBeeFlags(Tin);
+        addBeeFlags(NetherQuartz);
+        addBeeFlags(Monazite);
+        addBeeFlags(Goethite);
+        addBeeFlags(Cobaltite);
+        addBeeFlags(Malachite);
+        addBeeFlags(Sapphire);
+        addBeeFlags(Bornite);
+        addBeeFlags(Pentlandite);
+        addBeeFlags(Grossular);
+        addBeeFlags(CertusQuartz);
+        addBeeFlags(Silver);
+        addBeeFlags(Tetrahedrite);
+
+        //ores
+        OreProperty oreProp = COVELLITE.getProperty(PropertyKey.ORE);
+        oreProp.setDirectSmeltResult(Copper);
+        oreProp.setOreByProducts(ENARGITE, Pyrite, Chalcocite);
+
+        oreProp = ENARGITE.getProperty(PropertyKey.ORE);
+        oreProp.setDirectSmeltResult(Copper);
+        oreProp.setOreByProducts(Barite, Pyrite, Sphalerite);
+
+        oreProp = Niobium.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Tantalite, Pyrochlore, Titanium);
+
+        oreProp = Dysprosium.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Monazite, Cooperite, Holmium);
+
+        oreProp = Gadolinium.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Monazite, Cooperite, Dysprosium);
+
+        oreProp = Europium.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Monazite, Cooperite, Gadolinium);
+
+        oreProp = Holmium.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(Monazite, Cooperite, Dysprosium);
     }
 }

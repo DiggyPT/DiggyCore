@@ -23,10 +23,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.phoenix.diggycore.common.block.DiggyBlocks;
 import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
-import net.phoenix.diggycore.common.data.materials.BioChemMaterials;
-import net.phoenix.diggycore.common.data.materials.DiggyMaterialFlags;
-import net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags;
-import net.phoenix.diggycore.common.data.materials.ElementMaterials;
+import net.phoenix.diggycore.common.data.materials.*;
 import net.phoenix.diggycore.common.item.DiggyItems;
 import net.phoenix.diggycore.common.machine.DiggyMachines;
 
@@ -110,6 +107,8 @@ public class DiggyCore {
         DiggyBlocks.init();
         DiggyItems.init();
         DiggyMaterialFlags.init();
+
+        //DiggyAstraItems.ITEMS.init();
         // PhoenixDatagen.init();
     }
 
@@ -134,7 +133,8 @@ public class DiggyCore {
         // CustomMaterials.init();
         DiggyNewElementsAndAddFlags.register();
         ElementMaterials.register();
-        BioChemMaterials.register();
+        //BioChemMaterials.register();
+        DiggyMetallurgicAndGems.register();
     }
 
     /**

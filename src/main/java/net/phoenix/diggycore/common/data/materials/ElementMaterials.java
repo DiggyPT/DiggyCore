@@ -61,6 +61,13 @@ public class ElementMaterials {
         GTMaterials.Astatine.setProperty(PropertyKey.DUST, new DustProperty());
         // GTMaterials.Oganesson.setProperty(PropertyKey.FLUID, new FluidProperty());
         GTMaterials.Oganesson.setProperty(PropertyKey.WOOD, new WoodProperty());
+
+        GTMaterials.Niobium.setProperty(PropertyKey.ORE, new OreProperty());
+        GTMaterials.Dysprosium.setProperty(PropertyKey.ORE, new OreProperty());
+        GTMaterials.Holmium.setProperty(PropertyKey.ORE, new OreProperty());
+        GTMaterials.Praseodymium.setProperty(PropertyKey.ORE, new OreProperty());
+        GTMaterials.Europium.setProperty(PropertyKey.ORE, new OreProperty());
+        GTMaterials.Gadolinium.setProperty(PropertyKey.ORE, new OreProperty());
     }
 
     public static void modifyMaterials() {}

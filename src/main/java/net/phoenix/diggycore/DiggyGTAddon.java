@@ -5,9 +5,13 @@ import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
+import net.phoenix.diggycore.common.data.DiggyOres;
 import net.phoenix.diggycore.common.data.materials.DiggyElements;
 import net.phoenix.diggycore.common.data.recipe.generated.DiggyMaterialPartRecipeGen;
 import net.phoenix.diggycore.common.registry.DiggyRegistration;
+import net.phoenix.diggycore.data.recipe.DiggyBeeBreedingRecipes;
+import net.phoenix.diggycore.data.recipe.MachineMakeRecipes;
 
 import java.util.function.Consumer;
 
@@ -38,6 +42,8 @@ public class DiggyGTAddon implements IGTAddon {
         DiggyMaterialPartRecipeGen.generateDoubleIngotRecipes(provider);
         DiggyMaterialPartRecipeGen.generateVialRecipes(provider);
         DiggyMaterialPartRecipeGen.generateBeeRecipes(provider);
+        DiggyBeeBreedingRecipes.init(provider);
+        MachineMakeRecipes.init(provider);
     }
 
     @Override
@@ -58,4 +64,10 @@ public class DiggyGTAddon implements IGTAddon {
      * event.registerKey(CustomRecipeCapabilities.PRESSURE, Pair.of(PRESSURE_IN, PRESSURE_OUT));
      * }
      */
+
+    @Override
+    public void registerOreVeins()
+    {
+        //DiggyOres.create(Consumer<ResourceLocation> consumer);
+    }
 }

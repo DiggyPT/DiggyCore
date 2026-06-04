@@ -15,7 +15,7 @@ public class DiggyMaterialFlags {
     public static final MaterialFlag GENERATE_DOUBLE_INGOT = new MaterialFlag.Builder("generate_double_ingot")
             .requireProps(PropertyKey.INGOT).build();
     public static final MaterialFlag GENERATE_BEE_COMB = new MaterialFlag.Builder("generate_bee_comb")
-            .requireProps(PropertyKey.DUST).build();
+            .requireProps(PropertyKey.ORE).build();
 
     public static final TagPrefix vial = new TagPrefix("vial")
             .idPattern("%s_vial")
