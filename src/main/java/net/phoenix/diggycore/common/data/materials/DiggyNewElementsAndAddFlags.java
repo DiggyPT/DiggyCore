@@ -27,6 +27,12 @@ public class DiggyNewElementsAndAddFlags {
     public static Material MAGRABIYAH;
     public static Material NICOSIUM;
     public static Material CUANDAY;
+    public static Material CUANDAY_QUAY;
+    public static Material PHOENICIUM;
+    public static Material CENTAURIUM;
+    public static Material DESH;
+    public static Material OSTRUM;
+    public static Material CALORITE;
 
     public static void register() {
         FEYNMANIUM = new Material.Builder(DiggyCore.id("feynmanium"))
@@ -159,6 +165,53 @@ public class DiggyNewElementsAndAddFlags {
                 .element(DiggyElements.CUANDAY)
                 .appendFlags(EXT2_METAL, GENERATE_SPRING, GENERATE_SPRING_SMALL, GENERATE_FOIL, GENERATE_FRAME,
                         GENERATE_VIAL)
+                .buildAndRegister();
+
+        CUANDAY_QUAY = new Material.Builder(DiggyCore.id("cuanday_quay"))
+                .dust()
+                .liquid(new FluidBuilder().temperature(2124))
+                .color(0xCDBEE8)
+                .secondaryColor(0x966AC1)
+                .iconSet(MaterialIconSet.DULL)
+                .element(DiggyElements.CUANDAY_QUAY)
+                .buildAndRegister();
+
+        CENTAURIUM = new Material.Builder(DiggyCore.id("centaurium"))
+                .ingot()
+                .liquid(new FluidBuilder().temperature(2357))
+                .color(0x80ed26)
+                .secondaryColor(0x968a1a)
+                .iconSet(MaterialIconSet.SHINY)
+                .element(DiggyElements.CENTAURIUM)
+                .buildAndRegister();
+
+        DESH = new Material.Builder(DiggyCore.id("desh"))
+                .ingot()
+                .liquid(new FluidBuilder().temperature(1268))
+                .color(0xed8815)
+                .secondaryColor(0xeb4710)
+                .iconSet(MaterialIconSet.METALLIC)
+                .element(DiggyElements.DESH)
+                .buildAndRegister();
+
+        PHOENICIUM = new Material.Builder(DiggyCore.id("phoenicium"))
+                .ore().ingot()
+                .liquid(new FluidBuilder().temperature(845))
+                .color(0xf05c00)
+                .secondaryColor(0xad3723)
+                .iconSet(MaterialIconSet.SHINY)
+                .element(DiggyElements.PHOENICIUM)
+                .langValue("Phoenicium")
+                .buildAndRegister();
+
+        OSTRUM = new Material.Builder(DiggyCore.id("ostrum"))
+                .ore().ingot()
+                .liquid(new FluidBuilder().temperature(2828))
+                .color(0x925E64)
+                .secondaryColor(0x42313D)
+                .iconSet(MaterialIconSet.DULL)
+                .element(DiggyElements.OSTRUM)
+                .langValue("Ostrum")
                 .buildAndRegister();
     }
 
@@ -344,7 +397,7 @@ public class DiggyNewElementsAndAddFlags {
         addBeeFlags(Silver);
         addBeeFlags(Tetrahedrite);
 
-        //ores
+        // ores
         OreProperty oreProp = COVELLITE.getProperty(PropertyKey.ORE);
         oreProp.setDirectSmeltResult(Copper);
         oreProp.setOreByProducts(ENARGITE, Pyrite, Chalcocite);

@@ -20,6 +20,12 @@ import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 // kylie gen-ner
 public class DiggyMaterialPartRecipeGen {
 
+    public static void init(Consumer<FinishedRecipe> provider) {
+        generateDoubleIngotRecipes(provider);
+        generateVialRecipes(provider);
+        generateBeeRecipes(provider);
+    }
+
     public static void generateDoubleIngotRecipes(Consumer<FinishedRecipe> provider) {
         GTCEuAPI.materialManager.getRegisteredMaterials().forEach((material) -> {
 

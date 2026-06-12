@@ -66,7 +66,10 @@ repositories {
     maven {
         url = "https://thedarkcolour.github.io/KotlinForForge/"
     }
-
+    maven{
+        //Ad astra
+        url = "https://maven.teamresourceful.com/repository/maven-public/"
+    }
 }
 
 version = mod_version
@@ -147,12 +150,19 @@ dependencies {
     modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     modRuntimeOnly("dev.emi:emi-forge:${emi_version}+${minecraft_version}")
     modRuntimeOnly("curse.maven:jade-324717:5390389")
+    modRuntimeOnly("curse.maven:phoenixs-chromatic-colors-1483210:7985373")
 
     // GregTech and dependencies
     modImplementation("com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtceu_version}:slim") { transitive = false }
     modImplementation("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
     modImplementation("com.tterrag.registrate:Registrate:${registrate_version}")
     modImplementation("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
+
+    //Ad astra and dependencies
+    modImplementation("earth.terrarium.adastra:ad_astra-forge-${minecraft_version}:${ad_astra_version}")
+    modImplementation("com.teamresourceful.resourcefulconfig:resourcefulconfig-forge-${minecraft_version}:${rconfig_version}")
+    modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}:${rlib_version}")
+    modImplementation("earth.terrarium.botarium:botarium-forge-${minecraft_version}:${botarium_version}")
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'

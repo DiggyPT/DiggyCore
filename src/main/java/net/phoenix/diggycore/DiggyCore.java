@@ -108,7 +108,7 @@ public class DiggyCore {
         DiggyItems.init();
         DiggyMaterialFlags.init();
 
-        //DiggyAstraItems.ITEMS.init();
+        // DiggyAstraItems.ITEMS.init();
         // PhoenixDatagen.init();
     }
 
@@ -133,7 +133,7 @@ public class DiggyCore {
         // CustomMaterials.init();
         DiggyNewElementsAndAddFlags.register();
         ElementMaterials.register();
-        //BioChemMaterials.register();
+        AdvancedChemMaterials.register();
         DiggyMetallurgicAndGems.register();
     }
 

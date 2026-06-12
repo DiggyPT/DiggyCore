@@ -21,6 +21,10 @@ public class DiggyElements {
     // Non-periodic elements. (Non-integer atomic number)
     public static Element CUANDAY;
     public static Element CUANDAY_QUAY;
+    public static Element PHOENICIUM;
+    public static Element CENTAURIUM;
+    public static Element DESH;
+    public static Element OSTRUM;
 
     public static void init() {
         // Neutron amount: n = 0.12522539p^2 - 29.278236p + 1887.26392
@@ -37,6 +41,12 @@ public class DiggyElements {
         NICOSIUM = create("nicosium", 141L, -1L, null, "Nicosium", "Ns", false);
 
         CUANDAY = create("cuanday", 23L, 26L, -1L, null, "Cuanday", "Cn", false);
+        CUANDAY_QUAY = create("cuanday_quay", 24L, 29L, -1L, null, "Cuanday Quay", "Cq", false);
+
+        PHOENICIUM = create("phoenicium", 32L, -1L, null, "Phoenicium", "Φ", false);
+        CENTAURIUM = create("centaurium", 33L, -1L, null, "Centaurium", "Cχ", false);
+        DESH = create("desh", 34L, -1L, null, "Desh", "Dδ", false);
+        OSTRUM = create("ostrum", 62L, -1L, null, "Desh", "Ωs", false);
     }
 
     private static Element create(String name, long protons, long neutrons, String symbol) {

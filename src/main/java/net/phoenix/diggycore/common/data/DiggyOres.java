@@ -1,10 +1,10 @@
 package net.phoenix.diggycore.common.data;
 
-import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.data.worldgen.GTOreDefinition;
 import com.gregtechceu.gtceu.api.data.worldgen.WorldGenLayers;
 import com.gregtechceu.gtceu.api.data.worldgen.generator.indicators.SurfaceIndicatorGenerator;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.valueproviders.UniformInt;
