@@ -1,5 +1,6 @@
 {
   "gtceu:auto_output_info": null,
+  "gtceu:battery_info": null,
   "gtceu:cable_info": null,
   "gtceu:controllable_provider": null,
   "gtceu:custom_fluid_storage": null,
@@ -10,6 +11,7 @@
   "gtceu:exhaust_vent_info": null,
   "gtceu:fluid_storage": null,
   "gtceu:hazard_cleaner_provider": null,
+  "gtceu:ldp_endpoint": null,
   "gtceu:machine_mode": null,
   "gtceu:maintenance_info": null,
   "gtceu:multiblock_structure": null,

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "diggycore:block/rocket_engines/ion_engine/end",
+    "side": "diggycore:block/rocket_engines/ion_engine/side"
+  }
+}

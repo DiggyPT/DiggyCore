@@ -45,19 +45,19 @@ A detailed walkthrough of the error, its code path and all known details is as f
 Thread: Render thread
 Suspected Mod: 
 	DiggyCore (diggycore), Version: 0.1.0
-		at TRANSFORMER/diggycore@0.1.0/net.phoenix.diggycore.common.data.materials.DiggyMaterials.register(DiggyMaterials.java:19)
+		at TRANSFORMER/diggycore@0.1.0/net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags.register(DiggyMaterials.java:19)
 Stacktrace:
-	at net.phoenix.diggycore.common.data.materials.DiggyMaterials.register(DiggyMaterials.java:19) ~[%23194!/:?] {re:classloading}
+	at net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags.register(DiggyMaterials.java:19) ~[%23194!/:?] {re:classloading}
 -- MOD diggycore --
 Details:
 	Mod File: /D:/Users/diogo/OneDrive/Documentos/GitHub/DiggyCore/build/classes/java/main/
 	Failure message: DiggyCore (diggycore) encountered an error during the common_setup event phase
-		java.lang.NullPointerException: Cannot invoke "com.gregtechceu.gtceu.api.data.chemical.material.Material.setProperty(com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey, com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty)" because "net.phoenix.diggycore.common.data.materials.DiggyMaterials.QuantumCoolant" is null
+		java.lang.NullPointerException: Cannot invoke "com.gregtechceu.gtceu.api.data.chemical.material.Material.setProperty(com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey, com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty)" because "net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags.QuantumCoolant" is null
 	Mod Version: 0.1.0
 	Mod Issue URL: NOT PROVIDED
-	Exception message: java.lang.NullPointerException: Cannot invoke "com.gregtechceu.gtceu.api.data.chemical.material.Material.setProperty(com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey, com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty)" because "net.phoenix.diggycore.common.data.materials.DiggyMaterials.QuantumCoolant" is null
+	Exception message: java.lang.NullPointerException: Cannot invoke "com.gregtechceu.gtceu.api.data.chemical.material.Material.setProperty(com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey, com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty)" because "net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags.QuantumCoolant" is null
 Stacktrace:
-	at net.phoenix.diggycore.common.data.materials.DiggyMaterials.register(DiggyMaterials.java:19) ~[main/:?] {re:classloading}
+	at net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags.register(DiggyMaterials.java:19) ~[main/:?] {re:classloading}
 	at net.phoenix.diggycore.DiggyCore.addMaterials(DiggyCore.java:108) ~[main/:?] {re:classloading}
 	at net.minecraftforge.eventbus.EventBus.doCastFilter(EventBus.java:260) ~[eventbus-6.0.5.jar:?] {}
 	at net.minecraftforge.eventbus.EventBus.lambda$addListener$11(EventBus.java:252) ~[eventbus-6.0.5.jar:?] {}

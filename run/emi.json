@@ -1,6 +1,777 @@
 {
   "favorites": [],
   "lookup_history": [
+    "item:diggycore:proton",
+    "item:diggycore:cyclotron",
+    "item:gtceu:lv_laser_engraver",
+    "item:gtceu:fusion_casing",
+    "item:gtceu:fusion_glass",
+    "item:gtceu:fusion_casing_mk2",
+    "item:gtceu:fusion_coil",
+    "item:gtceu:superconducting_coil",
+    "item:gtceu:lv_chemical_bath",
+    "item:diggycore:neutron",
+    "item:diggycore:galaxyspace_grade_casing",
+    "item:diggycore:feynmanium_frame",
+    "item:gtceu:terminal",
+    "item:gtceu:californium_vial",
+    "item:gtceu:lv_assembler",
+    "item:gtceu:berkelium_vial",
+    "item:gtceu:luv_fusion_reactor",
+    "item:gtceu:zpm_fusion_reactor",
+    "item:gtceu:data_stick{assembly_line_research:{research_id:\"1x_gtceu_indium_tin_barium_titanium_cuprate_single_wire\",research_type:\"gtceu:assembly_line\"}}",
+    "item:gtceu:uv_fusion_reactor",
+    "item:gtceu:secure_maceration_casing",
+    "item:gtceu:duranium_ingot",
+    "item:gtceu:duranium_plate",
+    "item:gtceu:duranium_wrench_tip",
+    "item:gtceu:hv_duranium_wrench{Charge:2147483647L,Damage:0,DisallowContainerItem:0b,GT.Behaviours:{Mode:2b,RelocateMinedBlocks:1b,RelocateMobDrops:1b},GT.Tool:{DefaultEnchantments:[],HarvestLevel:5,MaxDamage:8191,ToolSpeed:46.0f},HideFlags:2,MaxCharge:2147483647L}",
+    {
+      "type": "item",
+      "id": "gtceu:neutron_reflector",
+      "amount": 4
+    },
+    "item:diggycore:mega_solar_boiler",
+    "item:gtceu:ulv_output_hatch",
+    "item:gtceu:advanced_quarktech_chestplate",
+    "item:gtceu:gravitation_engine_unit",
+    "item:minecraft:oak_slab",
+    "item:diggycore:maraging_steel_200_dust",
+    "item:gtceu:causality_hazard_sign_block",
+    {
+      "type": "item",
+      "id": "gtceu:iron_dust",
+      "amount": 16
+    },
+    {
+      "type": "fluid",
+      "id": "gtceu:molten_maraging_steel_300",
+      "amount": 0
+    },
+    "item:gtceu:hot_maraging_steel_300_ingot",
+    "item:gtceu:maraging_steel_300_dust",
+    "item:diggycore:galacticraft_compressor",
+    {
+      "type": "item",
+      "id": "diggycore:heavy_duty_plating_tier_1_plate",
+      "amount": 32
+    },
+    "item:diggycore:hot_heavy_duty_plating_tier_10_ingot",
+    "item:diggycore:heavy_duty_plating_tier_10_ingot",
+    "item:diggycore:hot_maraging_steel_200_ingot",
+    {
+      "type": "item",
+      "id": "diggycore:maraging_steel_200_ingot",
+      "amount": 3
+    },
+    {
+      "type": "item",
+      "id": "diggycore:maraging_steel_200_plate",
+      "amount": 6
+    },
+    "item:gtceu:glass_vial",
+    {
+      "type": "item",
+      "id": "gtceu:aluminium_plate",
+      "amount": 64
+    },
+    "item:gtceu:stress_proof_casing",
+    "item:ad_astra:desh_plate",
+    "item:diggycore:desh_block",
+    "#item:ad_astra:desh_blocks",
+    "item:gtceu:auto_maintenance_hatch",
+    {
+      "type": "item",
+      "id": "minecraft:charcoal",
+      "amount": 9
+    },
+    "item:gtceu:lv_forge_hammer",
+    "item:gtceu:hp_steam_forge_hammer",
+    "item:diggycore:greenhouse",
+    "item:gtceu:white_metal_sheet",
+    "item:gtceu:brown_metal_sheet",
+    {
+      "type": "fluid",
+      "id": "gtceu:tritium",
+      "amount": 125
+    },
+    "fluid:gtceu:helium_plasma",
+    {
+      "type": "fluid",
+      "id": "gtceu:helium",
+      "amount": 100
+    },
+    "item:gtceu:maraging_steel_300_ingot",
+    {
+      "type": "item",
+      "id": "gtceu:maraging_steel_300_plate",
+      "amount": 6
+    },
+    "item:gtceu:maraging_steel_300_frame",
+    "item:gtceu:maraging_steel_300_rod",
+    {
+      "type": "item",
+      "id": "gtceu:bastnasite_dust",
+      "amount": 2
+    },
+    "item:gtceu:raw_bastnasite",
+    "item:gtceu:raw_neodymium",
+    "item:gtceu:rare_earth_dust",
+    {
+      "type": "item",
+      "id": "gtceu:small_samarium_dust",
+      "amount": 4
+    },
+    "item:gtceu:samarium_dust",
+    "item:gtceu:hot_samarium_ingot",
+    "item:gtceu:samarium_ingot",
+    {
+      "type": "fluid",
+      "id": "gtceu:molten_watertight_steel",
+      "amount": 144
+    },
+    "item:gtceu:watertight_steel_ingot",
+    "item:gtceu:dysprosium_ingot",
+    "item:gtceu:tungsten_ingot",
+    "item:gtceu:inert_machine_casing",
+    {
+      "type": "item",
+      "id": "gtceu:high_temperature_smelting_casing",
+      "amount": 34
+    },
+    "item:gtceu:alloy_blast_smelter",
+    {
+      "type": "fluid",
+      "id": "gtceu:maraging_steel_300",
+      "amount": 144
+    },
+    "item:gtceu:nonconducting_casing",
+    "item:gtceu:magnalium_ingot",
+    "item:gtceu:magnalium_plate",
+    "item:gtceu:steel_turbine_casing",
+    "item:gtceu:titanium_turbine_casing",
+    "item:gtceu:titanium_gearbox",
+    "item:gtceu:stable_machine_casing",
+    "item:gtceu:robust_machine_casing",
+    {
+      "type": "item",
+      "id": "gtceu:chipped_malachite_gem",
+      "amount": 2
+    },
+    {
+      "type": "item",
+      "id": "gtceu:flawed_malachite_gem",
+      "amount": 2
+    },
+    {
+      "type": "item",
+      "id": "gtceu:malachite_gem",
+      "amount": 2
+    },
+    {
+      "type": "item",
+      "id": "gtceu:flawless_malachite_gem",
+      "amount": 2
+    },
+    "item:gtceu:exquisite_malachite_gem",
+    "item:diggycore:centaurite_dust",
+    "item:diggycore:raw_centaurite",
+    {
+      "type": "fluid",
+      "id": "diggycore:bohemium",
+      "amount": 0
+    },
+    "item:diggycore:cuanday_vial",
+    {
+      "type": "item",
+      "id": "diggycore:small_cuanday_dust",
+      "amount": 2
+    },
+    "item:diggycore:cuanday_ingot",
+    "item:diggycore:armstrongium_vial",
+    "item:diggycore:raw_enargite_block",
+    "item:diggycore:greenhouse_dirt",
+    "item:diggycore:raw_isaacmanite",
+    "item:diggycore:raw_gunnerite",
+    {
+      "type": "item",
+      "id": "diggycore:enargite_dust",
+      "chance": 0.1111
+    },
+    "item:diggycore:raw_covellite",
+    "item:gtceu:granitic_mineral_sand_bee",
+    "item:gtceu:malachite_bee",
+    "item:gtceu:stibnite_bee",
+    "item:gtceu:thorium_bee",
+    "item:gtceu:certus_quartz_bee",
+    "item:gtceu:platinum_bee",
+    "item:gtceu:green_sapphire_bee",
+    "item:gtceu:quartzite_bee",
+    "item:gtceu:yellow_garnet_bee",
+    "item:gtceu:soapstone_bee",
+    {
+      "type": "item",
+      "id": "gtceu:stem_cells",
+      "amount": 32
+    },
+    {
+      "type": "fluid",
+      "id": "gtceu:sterilized_growth_medium",
+      "amount": 100
+    },
+    {
+      "type": "fluid",
+      "id": "gtceu:raw_growth_medium",
+      "amount": 0
+    },
+    "item:gtceu:raw_scheelite",
+    "item:gtceu:raw_monazite",
+    "item:diggycore:gunnerite_dust",
+    "item:diggycore:gunnerite_gem",
+    "item:gtceu:raw_praseodymium",
+    {
+      "type": "item",
+      "id": "gtceu:europium_dust",
+      "chance": 0.3333
+    },
+    "item:gtceu:raw_europium",
+    "item:gtceu:hot_niobium_ingot",
+    "item:gtceu:niobium_dust",
+    "item:gtceu:raw_niobium",
+    "item:gtceu:gadolinium_dust",
+    "item:gtceu:gadolinium_bolt",
+    "item:gtceu:arsenic_dust",
+    "item:gtceu:dysprosium_ore",
+    "item:diggycore:small_belusovium_dust",
+    "item:diggycore:belusovium_vial",
+    "item:diggycore:flawed_isaacmanite_gem",
+    "item:diggycore:chipped_isaacmanite_gem",
+    "item:diggycore:exquisite_isaacmanite_gem",
+    "item:gtceu:alunite_bee",
+    "item:gtceu:uhv_machine_casing",
+    "item:gtceu:uhv_machine_hull",
+    "item:diggycore:uhv_apiary",
+    "item:gtceu:ilmenite_bee",
+    "item:gtceu:hematite_bee",
+    "item:gtceu:realgar_bee",
+    "item:gtceu:tungstate_bee",
+    "item:gtceu:pyrochlore_bee",
+    "item:gtceu:monazite_bee",
+    "item:gtceu:trona_bee",
+    "item:minecraft:copper_ingot",
+    "item:diggycore:isaacmanite_dust",
+    "item:diggycore:isaacmanite_gem",
+    "item:gtceu:molybdenite_bee",
+    "item:gtceu:amethyst_bee",
+    "item:gtceu:cassiterite_bee",
+    "item:gtceu:red_garnet_bee",
+    "item:gtceu:palladium_bee",
+    "item:gtceu:magnesite_bee",
+    {
+      "type": "item",
+      "id": "gtceu:tricalcium_phosphate_bee",
+      "chance": 0.2
+    },
+    {
+      "type": "item",
+      "id": "gtceu:apatite_bee",
+      "chance": 0.8
+    },
+    {
+      "type": "item",
+      "id": "gtceu:pyrope_bee",
+      "chance": 0.0
+    },
+    "item:gtceu:chalcocite_bee",
+    "item:gtceu:pentlandite_bee",
+    "item:gtceu:nickel_bee",
+    "item:gtceu:saltpeter_bee",
+    {
+      "type": "item",
+      "id": "gtceu:tin_bee",
+      "chance": 0.0
+    },
+    {
+      "type": "item",
+      "id": "gtceu:salt_bee",
+      "chance": 0.0
+    },
+    {
+      "type": "item",
+      "id": "gtceu:lepidolite_bee",
+      "chance": 0.0
+    },
+    "item:gtceu:lithium_bee",
+    {
+      "type": "item",
+      "id": "gtceu:iron_bee",
+      "chance": 0.0
+    },
+    "item:gtceu:yellow_limonite_bee",
+    {
+      "type": "item",
+      "id": "gtceu:flawed_lazurite_gem",
+      "chance": 0.25
+    },
+    "item:gtceu:chipped_lazurite_gem",
+    "item:gtceu:uraninite_dust",
+    "item:gtceu:raw_uraninite",
+    "item:gtceu:uraninite_comb",
+    {
+      "type": "item",
+      "id": "gtceu:uraninite_bee",
+      "chance": 0.68
+    },
+    {
+      "type": "item",
+      "id": "gtceu:plutonium_bee",
+      "chance": 0.02
+    },
+    "item:gtceu:naquadah_bee",
+    "item:gtceu:raw_pollucite",
+    "item:gtceu:pollucite_comb",
+    {
+      "type": "item",
+      "id": "gtceu:pollucite_bee",
+      "chance": 0.0
+    },
+    {
+      "type": "item",
+      "id": "gtceu:sodium_hydroxide_dust",
+      "amount": 3
+    },
+    {
+      "type": "fluid",
+      "id": "gtceu:salt_water",
+      "amount": 0
+    },
+    "item:diggycore:mv_apiary",
+    "item:gtceu:stibnite_comb",
+    {
+      "type": "item",
+      "id": "gtceu:cobaltite_bee",
+      "chance": 0.0
+    },
+    "item:gtceu:cobaltite_comb",
+    "item:gtceu:cobalt_ingot",
+    "item:gtceu:raw_cobalt",
+    "item:gtceu:cobalt_comb",
+    "item:gtceu:cobalt_bee",
+    "item:gtceu:raw_trona",
+    "item:gtceu:trona_comb",
+    "item:gtceu:nan_certificate",
+    "item:gtceu:neutronium_block",
+    "item:gtceu:neutronium_ingot",
+    {
+      "type": "fluid",
+      "id": "gtceu:neutronium",
+      "amount": 32
+    },
+    "item:gtceu:wetware_processor_mainframe",
+    "item:gtceu:wetware_processor_computer",
+    "item:gtceu:wetware_processor_assembly",
+    "item:gtceu:raw_grossular",
+    "item:gtceu:grossular_comb",
+    "item:diggycore:lv_apiary",
+    "item:gtceu:sulfur_bee",
+    "item:gtceu:pyrite_bee",
+    {
+      "type": "item",
+      "id": "gtceu:silver_bee",
+      "chance": 0.5
+    },
+    {
+      "type": "item",
+      "id": "gtceu:gold_bee",
+      "chance": 0.0
+    },
+    "item:gtceu:chalcopyrite_bee",
+    "item:gtceu:garnet_sand_bee",
+    "item:gtceu:almandine_bee",
+    "item:gtceu:ruby_bee",
+    "item:gtceu:diamond_bee",
+    "item:gtceu:bentonite_bee",
+    "item:gtceu:sapphire_bee",
+    "item:gtceu:topaz_bee",
+    "item:gtceu:cassiterite_sand_bee",
+    "item:gtceu:talc_bee",
+    "item:gtceu:blue_topaz_bee",
+    "item:gtceu:copper_bee",
+    {
+      "type": "item",
+      "id": "gtceu:olivine_bee",
+      "chance": 0.0
+    },
+    {
+      "type": "item",
+      "id": "gtceu:emerald_bee",
+      "chance": 0.0
+    },
+    {
+      "type": "item",
+      "id": "gtceu:graphite_bee",
+      "chance": 0.0
+    },
+    {
+      "type": "item",
+      "id": "gtceu:scheelite_bee",
+      "chance": 0.0
+    },
+    "item:gtceu:chromite_bee",
+    "item:gtceu:aluminium_bee",
+    "item:minecraft:honeycomb",
+    "item:gtceu:raw_tin",
+    {
+      "type": "item",
+      "id": "gtceu:basaltic_mineral_sand_bee",
+      "chance": 0.0
+    },
+    "item:gtceu:trona_dust",
+    "item:gtceu:redstone_bee",
+    "item:gtceu:bornite_bee",
+    "item:gtceu:wulfenite_bee",
+    "item:gtceu:small_sugar_dust",
+    "item:gtceu:raw_barite",
+    "item:gtceu:barite_comb",
+    "item:gtceu:barite_bee",
+    "item:gtceu:garnierite_bee",
+    "item:gtceu:grossular_bee",
+    "item:gtceu:raw_sulfur",
+    "item:gtceu:sulfur_comb",
+    "item:gtceu:raw_chromite",
+    "item:gtceu:chromite_comb",
+    "item:gtceu:vanadium_magnetite_dust",
+    "item:gtceu:raw_vanadium_magnetite",
+    "item:gtceu:raw_magnetite",
+    "item:gtceu:magnetite_comb",
+    "item:gtceu:magnetite_bee",
+    "item:gtceu:raw_molybdenum",
+    "item:gtceu:molybdenum_comb",
+    "item:gtceu:molybdenum_bee",
+    "item:gtceu:bastnasite_comb",
+    "item:gtceu:bastnasite_bee",
+    "item:gtceu:neodymium_comb",
+    "item:gtceu:neodymium_bee",
+    "item:gtceu:pitchblende_bee",
+    "item:gtceu:lazurite_bee",
+    "item:gtceu:raw_emerald",
+    "item:gtceu:emerald_comb",
+    "item:gtceu:raw_pitchblende",
+    "item:gtceu:raw_red_garnet",
+    "item:gtceu:raw_amethyst",
+    "item:gtceu:amethyst_comb",
+    "item:gtceu:coal_bee",
+    "item:gtceu:electrotine_bee",
+    "item:gtceu:diatomite_bee",
+    "item:gtceu:goethite_bee",
+    "item:gtceu:calcite_bee",
+    "item:gtceu:gypsum_bee",
+    {
+      "type": "item",
+      "id": "gtceu:kyanite_bee",
+      "chance": 0.7
+    },
+    "item:gtceu:lead_bee",
+    "item:gtceu:rock_salt_bee",
+    "item:gtceu:sphalerite_bee",
+    {
+      "type": "item",
+      "id": "gtceu:tetrahedrite_bee",
+      "chance": 0.0
+    },
+    "item:gtceu:tetrahedrite_comb",
+    "item:gtceu:raw_tetrahedrite",
+    "item:gtceu:raw_stibnite",
+    "item:gtceu:raw_lead",
+    "item:gtceu:raw_bauxite",
+    "item:gtceu:bauxite_dust",
+    "item:gtceu:raw_kyanite",
+    "item:gtceu:raw_talc",
+    "item:gtceu:lapis_dust",
+    {
+      "type": "item",
+      "id": "minecraft:lapis_lazuli",
+      "amount": 6
+    },
+    "item:gtceu:raw_lapis",
+    "item:gtceu:raw_lazurite",
+    {
+      "type": "item",
+      "id": "gtceu:alunite_dust",
+      "amount": 3
+    },
+    "item:gtceu:raw_alunite",
+    "item:gtceu:raw_lepidolite",
+    "item:gtceu:raw_spodumene",
+    "item:gtceu:raw_pyrochlore",
+    "item:gtceu:raw_apatite",
+    "item:gtceu:raw_almandine",
+    "item:gtceu:raw_topaz",
+    "item:gtceu:raw_blue_topaz",
+    "item:gtceu:raw_bornite",
+    "item:gtceu:raw_cooperite",
+    {
+      "type": "item",
+      "id": "gtceu:platinum_group_sludge_dust",
+      "amount": 4
+    },
+    "item:gtceu:purified_cooperite_ore",
+    {
+      "type": "item",
+      "id": "gtceu:crushed_cooperite_ore",
+      "amount": 2
+    },
+    "item:gtceu:the_end_marker",
+    "item:gtceu:raw_lithium",
+    "item:gtceu:raw_cobaltite",
+    "item:gtceu:raw_pentlandite",
+    "item:gtceu:raw_glauconite_sand",
+    "item:gtceu:raw_olivine",
+    "item:gtceu:raw_magnesite",
+    "item:gtceu:raw_bentonite",
+    "item:gtceu:raw_pyrope",
+    "item:gtceu:raw_aluminium",
+    "item:gtceu:raw_malachite",
+    "item:gtceu:raw_plutonium",
+    "item:gtceu:raw_basaltic_mineral_sand",
+    "item:gtceu:raw_cassiterite_sand",
+    "item:gtceu:raw_oilsands",
+    "item:gtceu:raw_granitic_mineral_sand",
+    "item:gtceu:raw_pyrite",
+    "item:gtceu:pyrite_comb",
+    "item:minecraft:sugar",
+    "item:minecraft:cornflower",
+    {
+      "type": "fluid",
+      "id": "minecraft:water",
+      "amount": 0
+    },
+    {
+      "type": "item",
+      "id": "gtceu:cooperite_bee",
+      "chance": 0.02
+    },
+    "item:gtceu:zeolite_bee",
+    "item:gtceu:tin_comb",
+    {
+      "type": "item",
+      "id": "gtceu:diamond_comb",
+      "chance": 0.1
+    },
+    "item:gtceu:tantalite_bee",
+    "item:gtceu:nether_quartz_bee",
+    "item:gtceu:pyrolusite_bee",
+    "item:gtceu:glauconite_sand_bee",
+    "item:gtceu:fullers_earth_bee",
+    "item:gtceu:beryllium_bee",
+    "item:gtceu:lapis_bee",
+    "item:gtceu:galena_bee",
+    "item:gtceu:raw_wulfenite",
+    {
+      "type": "item",
+      "id": "gtceu:palladium_dust",
+      "chance": 0.3333
+    },
+    "item:gtceu:crushed_palladium_ore",
+    "item:gtceu:raw_palladium",
+    "item:gtceu:raw_yellow_limonite",
+    "item:minecraft:raw_iron",
+    {
+      "type": "item",
+      "id": "gtceu:potassium_ferrocyanide_dust",
+      "amount": 51
+    },
+    {
+      "type": "item",
+      "id": "gtceu:prussian_blue_dust",
+      "amount": 3
+    },
+    {
+      "type": "item",
+      "id": "gtceu:rad_away_dust",
+      "amount": 16
+    },
+    "item:gtceu:rad_away_pill",
+    "item:gtceu:uv_electric_motor",
+    "item:gtceu:firebrick",
+    "item:gtceu:coke_oven_brick",
+    "item:gtceu:compressed_fireclay",
+    "item:gtceu:compressed_coke_clay",
+    "item:diggycore:bohemium_rod",
+    "item:diggycore:bohemium_ingot",
+    "item:diggycore:bohemium_dust",
+    "item:diggycore:small_bohemium_dust",
+    {
+      "type": "item",
+      "id": "diggycore:bohemium_vial",
+      "amount": 64
+    },
+    "item:minecraft:stone",
+    {
+      "type": "fluid",
+      "id": "gtceu:sulfuric_copper_solution",
+      "amount": 0
+    },
+    "item:gtceu:copper_vial",
+    "item:gtceu:copper_double_ingot",
+    "#item:minecraft:wooden_fences",
+    "item:diggycore:hv_apiary",
+    "item:diggycore:zpm_apiary",
+    "item:diggycore:luv_apiary",
+    "item:diggycore:ev_apiary",
+    "item:diggycore:opv_apiary",
+    "item:gtceu:uiv_centrifuge",
+    {
+      "type": "item",
+      "id": "minecraft:iron_ingot",
+      "amount": 2
+    },
+    "item:gtceu:uiv_electric_furnace",
+    "item:gtceu:naquadah_alloy_frame",
+    "item:gtceu:multilayer_fiber_reinforced_printed_circuit_board",
+    "item:gtceu:multilayer_fiber_reinforced_circuit_board",
+    "item:gtceu:bio_chaff",
+    "item:gtceu:technetium_double_ingot",
+    "item:gtceu:technetium_block",
+    "item:gtceu:livermorium_vial",
+    {
+      "type": "item",
+      "id": "gtceu:zirconium_vial",
+      "amount": 64
+    },
+    "item:gtceu:quarktech_helmet{Charge:100000000L}",
+    {
+      "type": "item",
+      "id": "gtceu:dysprosium_dust",
+      "amount": 64
+    },
+    "item:gtceu:raw_chalcopyrite",
+    "item:gtceu:raw_chalcocite",
+    "item:gtceu:lv_input_bus",
+    "item:gtceu:stainless_steel_frame",
+    {
+      "type": "item",
+      "id": "gtceu:small_scandium_dust",
+      "amount": 2
+    },
+    {
+      "type": "item",
+      "id": "gtceu:scandium_ingot",
+      "amount": 2
+    },
+    "item:diggycore:small_sonya_spring",
+    "item:gtceu:small_aluminium_spring",
+    "item:gtceu:small_europium_spring",
+    "item:gtceu:small_platinum_spring",
+    "item:gtceu:small_red_alloy_spring",
+    "item:gtceu:small_tungsten_spring",
+    "item:gtceu:small_yttrium_barium_cuprate_spring",
+    "item:gtceu:small_copper_spring",
+    "item:diggycore:belusovium_block",
+    "item:diggycore:hawkine_frame",
+    "item:diggycore:keplerum_vial",
+    {
+      "type": "item",
+      "id": "diggycore:small_keplerum_dust",
+      "amount": 4
+    },
+    "item:diggycore:keplerum_dust",
+    "item:diggycore:lusitanium_rod",
+    "item:diggycore:lusitanium_frame",
+    "item:diggycore:long_lusitanium_rod",
+    "item:diggycore:small_hawkine_spring",
+    "item:gtceu:dynamite",
+    "item:gtceu:tiny_sodium_hydroxide_dust",
+    {
+      "type": "fluid",
+      "id": "gtceu:glycerol",
+      "amount": 1000
+    },
+    {
+      "type": "fluid",
+      "id": "gtceu:glyceryl_trinitrate",
+      "amount": 500
+    },
+    "item:gtceu:dubnium_double_ingot",
+    "item:gtceu:tennessine_double_ingot",
+    "item:gtceu:thallium_double_ingot",
+    "item:gtceu:iron_double_ingot",
+    "item:gtceu:iron_vial",
+    {
+      "type": "item",
+      "id": "gtceu:small_iron_dust",
+      "amount": 4
+    },
+    "item:gtceu:praseodymium_vial",
+    "item:gtceu:lv_compressor",
+    "item:gtceu:lv_canner",
+    {
+      "type": "fluid",
+      "id": "gtceu:iron",
+      "amount": 144
+    },
+    "item:gtceu:pyrolusite_dust",
+    "item:gtceu:hematite_dust",
+    "item:gtceu:gallium_sulfide_dust",
+    "item:gtceu:seaborgium_double_ingot",
+    "item:gtceu:dysprosium_double_ingot",
+    "item:gtceu:nobelium_double_ingot",
+    "item:gtceu:praseodymium_double_ingot",
+    "item:gtceu:gadolinium_double_ingot",
+    "item:gtceu:zirconium_double_ingot",
+    "item:gtceu:glass_lens",
+    "item:gtceu:exquisite_glass_gem",
+    "item:gtceu:osmiridium_round",
+    "item:gtceu:iron_round",
+    "item:gtceu:tritanium_round",
+    "item:gtceu:hsss_round",
+    "item:gtceu:osmiridium_nugget",
+    "item:gtceu:steel_minecart_wheels",
+    "item:minecraft:minecart",
+    "item:gtceu:iron_minecart_wheels",
+    {
+      "type": "item",
+      "id": "gtceu:chipped_diamond_gem",
+      "amount": 2
+    },
+    {
+      "type": "item",
+      "id": "gtceu:flawed_diamond_gem",
+      "amount": 2
+    },
+    "item:minecraft:diamond",
+    "item:minecraft:birch_trapdoor",
+    {
+      "type": "item",
+      "id": "gtceu:bronze_ingot",
+      "amount": 4
+    },
+    {
+      "type": "item",
+      "id": "minecraft:chicken",
+      "amount": 64
+    },
+    "fluid:gtceu:toluene",
+    "fluid:gtceu:fermented_biomass",
+    "fluid:gtceu:methanol",
+    "fluid:gtceu:raw_gasoline",
+    "fluid:gtceu:gasoline",
+    {
+      "type": "fluid",
+      "id": "gtceu:high_octane_gasoline",
+      "amount": 32000
+    },
+    {
+      "type": "fluid",
+      "id": "gtceu:ethyl_tertbutyl_ether",
+      "amount": 1000
+    },
+    "item:gtceu:large_combustion_engine",
+    "item:gtceu:uhv_muffler_hatch",
+    "item:gtceu:uev_muffler_hatch",
+    "item:gtceu:zpm_muffler_hatch",
+    "item:gtceu:iv_muffler_hatch",
+    "item:gtceu:opv_muffler_hatch",
     "item:gtceu:implosion_compressor",
     "item:gtceu:laminated_glass",
     "item:gtceu:sturdy_machine_casing",
@@ -11,12 +782,10 @@
     "item:gtceu:blacklight",
     "item:gtceu:sterilizing_filter_casing",
     "item:gtceu:filter_casing",
-    "item:gtceu:platinum_group_sludge_dust",
     "item:gtceu:platinum_raw_dust",
     "item:gtceu:anvil_casting_mold",
     "item:gtceu:phosphorus_wafer",
     "item:gtceu:lv_field_generator",
-    "item:gtceu:neutron_reflector",
     "item:gtceu:energy_crystal{Charge:6400000L}",
     "item:gtceu:compressed_clay",
     "item:gtceu:dubnium_ingot",
@@ -24,11 +793,6 @@
       "type": "item",
       "id": "gtceu:dough",
       "amount": 2
-    },
-    {
-      "type": "item",
-      "id": "minecraft:sugar",
-      "amount": 9
     },
     "item:gtceu:sugar_block",
     {
@@ -45,19 +809,11 @@
       "chance": 0.0
     },
     "item:gtceu:epoxy_ingot",
-    "item:gtceu:palladium_dust",
     "item:gtceu:palladium_ingot",
-    "item:gtceu:gravitation_engine_unit",
-    "item:gtceu:advanced_quarktech_chestplate{Charge:1000000000L}",
     "item:gtceu:purple_dye_spray_can",
     "item:gtceu:amethyst_plate",
     "item:gtceu:fluid_tag_filter",
     "item:gtceu:micro_processor",
-    {
-      "type": "fluid",
-      "id": "minecraft:water",
-      "amount": 20000
-    },
     "item:ldlib:test"
   ],
   "craft_history": [],

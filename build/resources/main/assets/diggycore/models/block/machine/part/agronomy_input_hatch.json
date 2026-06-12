@@ -1,0 +1,8 @@
+{
+   "parent": "gtceu:block/machine/template/part/hatch_machine_emissive",
+   "textures": {
+      "overlay": "diggycore:block/overlay/machine/overlay_agronomy_hatch_input",
+      "overlay_pipe": "diggycore:block/overlay/machine/overlay_pipe_agronomy",
+      "overlay_emissive": "diggycore:block/overlay/machine/overlay_agronomy_in_emissive"
+   }
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "gtceu:machine",
+  "machine": "diggycore:mv_apiary",
+  "variants": {
+    "recipe_logic_status=idle": {
+      "model": {
+        "parent": "gtceu:block/casings/voltage/mv",
+        "textures": {
+          "overlay_front": "gtceu:block/machines/apiary/overlay_front",
+          "overlay_side": "gtceu:block/machines/apiary/overlay_side",
+          "overlay_top": "gtceu:block/machines/apiary/overlay_top"
+        }
+      }
+    },
+    "recipe_logic_status=suspend": {
+      "model": {
+        "parent": "gtceu:block/casings/voltage/mv",
+        "textures": {
+          "overlay_front": "gtceu:block/machines/apiary/overlay_front",
+          "overlay_side": "gtceu:block/machines/apiary/overlay_side",
+          "overlay_top": "gtceu:block/machines/apiary/overlay_top"
+        }
+      }
+    },
+    "recipe_logic_status=waiting": {
+      "model": {
+        "parent": "gtceu:block/casings/voltage/mv",
+        "textures": {
+          "overlay_front": "gtceu:block/machines/apiary/overlay_front_active",
+          "overlay_side": "gtceu:block/machines/apiary/overlay_side",
+          "overlay_top": "gtceu:block/machines/apiary/overlay_top"
+        }
+      }
+    },
+    "recipe_logic_status=working": {
+      "model": {
+        "parent": "gtceu:block/casings/voltage/mv",
+        "textures": {
+          "overlay_front": "gtceu:block/machines/apiary/overlay_front_active",
+          "overlay_side": "gtceu:block/machines/apiary/overlay_side",
+          "overlay_top": "gtceu:block/machines/apiary/overlay_top"
+        }
+      }
+    }
+  }
+}

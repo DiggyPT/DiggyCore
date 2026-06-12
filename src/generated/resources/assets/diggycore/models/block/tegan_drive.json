@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "diggycore:block/rocket_engines/tegan_drive/end",
+    "side": "diggycore:block/rocket_engines/tegan_drive/side"
+  }
+}

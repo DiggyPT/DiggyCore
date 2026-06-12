@@ -1,0 +1,8 @@
+{
+  "parent": "gtceu:item/material_sets/metallic/ingot",
+  "textures": {
+    "layer0": "diggycore:item/material_sets/marine/ingot",
+    "layer1": "gtceu:item/material_sets/metallic/ingot_secondary",
+    "layer2": "gtceu:item/material_sets/metallic/ingot_hot_overlay"
+  }
+}

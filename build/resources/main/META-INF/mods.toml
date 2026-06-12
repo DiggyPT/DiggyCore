@@ -9,7 +9,7 @@ license = "LGPLv3.0"
 
 [[mods]]
     modId = "diggycore"
-    version = "0.1.0"
+    version = "0.2.0"
     displayName = "DiggyCore"
     displayURL = ""
     # This will be displayed as your mod's logo in the Mods panel.
@@ -17,7 +17,7 @@ license = "LGPLv3.0"
     # Some more fluff displayed in the Mods panel. Feel free to issue your special thanks here!
     # credits="Thanks to Mojang for making this great game" #optional
     # Some more fluff displayed in the Mods panel. Plug your stuff here!
-    authors="Phoenixvine"
+    authors="DiggyPT"
     description = '''
 Example Description
 ...ain is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,... (Lorem Ipsum translated to english.)
@@ -38,6 +38,6 @@ Example Description
     [[dependencies.diggycore]]
         modId = "gtceu"
         mandatory = true
-        versionRange = "[7.4.0,)"
+        versionRange = "[7.5.3,)"
         ordering = "AFTER"
         side = "BOTH"
