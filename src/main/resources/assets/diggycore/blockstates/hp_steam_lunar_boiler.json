@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "diggycore:block/machine/hp_steam_lunar_boiler",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "diggycore:block/machine/hp_steam_lunar_boiler"
+    },
+    "facing=south": {
+      "model": "diggycore:block/machine/hp_steam_lunar_boiler",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "diggycore:block/machine/hp_steam_lunar_boiler",
+      "y": 270
+    }
+  }
+}
