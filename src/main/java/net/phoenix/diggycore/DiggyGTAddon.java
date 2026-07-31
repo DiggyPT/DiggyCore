@@ -6,9 +6,9 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.phoenix.diggycore.common.data.materials.DiggyElements;
-import net.phoenix.diggycore.common.data.recipe.DiggyCyclotronRecipes;
-import net.phoenix.diggycore.common.data.recipe.DiggySpaceflightRecipes;
+import net.phoenix.diggycore.common.data.recipe.*;
 import net.phoenix.diggycore.common.data.recipe.generated.DiggyMaterialPartRecipeGen;
+import net.phoenix.diggycore.common.data.recipe.processinglines.DiggyProcessingLinesInit;
 import net.phoenix.diggycore.common.registry.DiggyRegistration;
 import net.phoenix.diggycore.data.recipe.DiggyBeeBreedingRecipes;
 import net.phoenix.diggycore.data.recipe.MachineMakeRecipes;
@@ -44,6 +44,12 @@ public class DiggyGTAddon implements IGTAddon {
         MachineMakeRecipes.init(provider);
         DiggySpaceflightRecipes.init(provider);
         DiggyCyclotronRecipes.init(provider);
+        DiggyAIRecipes.init(provider);
+        DiggyChemRecipes.init(provider);
+        DiggyProcessingLinesInit.init(provider);
+        DiggyChemicalPlantRecipes.init(provider);
+        DiggyAstroMinerRecipes.init(provider);
+        DiggyCircuitRecipes.init(provider);
     }
 
     @Override

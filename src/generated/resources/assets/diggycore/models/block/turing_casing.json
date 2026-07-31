@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "diggycore:block/casings/turing/end",
+    "side": "diggycore:block/casings/turing/side"
+  }
+}

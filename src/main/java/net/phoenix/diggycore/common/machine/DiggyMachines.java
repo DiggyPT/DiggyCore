@@ -19,11 +19,11 @@ import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.api.registry.registrate.MachineBuilder;
 import com.gregtechceu.gtceu.common.data.*;
 import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
-import com.gregtechceu.gtceu.common.machine.multiblock.steam.LargeBoilerMachine;
 import com.gregtechceu.gtceu.common.machine.multiblock.steam.SteamParallelMultiblockMachine;
-import com.gregtechceu.gtceu.common.registry.GTRegistration;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 
+import net.mcreator.dfplanets.init.DfPlanetsModBlocks;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Blocks;
@@ -31,6 +31,7 @@ import net.minecraftforge.fluids.FluidType;
 import net.phoenix.diggycore.DiggyCore;
 import net.phoenix.diggycore.api.machine.DiggyPartAbility;
 import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
+import net.phoenix.diggycore.common.data.materials.DiggyMetallurgicAndGems;
 import net.phoenix.diggycore.common.machine.multiblock.electric.Greenhouse;
 import net.phoenix.diggycore.common.machine.multiblock.electric.MegaSolarBoiler;
 import net.phoenix.diggycore.common.machine.multiblock.part.AgronomyInputHatch;
@@ -164,7 +165,8 @@ public class DiggyMachines {
 
     public static final MachineDefinition[] APIARY = registerSimpleMachines(DiggyRegistration.REGISTRATE, "apiary",
             DiggyRecipeTypes.APIARY_RECIPES);
-    public static final MachineDefinition[] PARTICLE_BEAM_ENGRAVER = registerSimpleMachines(DiggyRegistration.REGISTRATE, "particle_beam_engraver",
+    public static final MachineDefinition[] PARTICLE_BEAM_ENGRAVER = registerSimpleMachines(
+            DiggyRegistration.REGISTRATE, "particle_beam_engraver",
             DiggyRecipeTypes.PARTICLE_BEAM_ENGRAVER_RECIPES);
 
     public static final MultiblockMachineDefinition GALACTICRAFT_COMPRESSOR = REGISTRATE
@@ -220,7 +222,7 @@ public class DiggyMachines {
                             ConfigHolder.INSTANCE.machines.largeBoilers.bronzeBoilerHeatSpeed))
             .rotationState(RotationState.ALL)
             .recipeTypes(GTRecipeTypes.STEAM_BOILER_RECIPES)
-            .recipeModifiers(SteamParallelMultiblockMachine::recipeModifier)
+            .recipeModifiers(GTRecipeModifiers.BATCH_MODE)
             .appearanceBlock(CASING_BRONZE_BRICKS)
             .langValue("Mega Solar Boiler")
             .tooltips(Component.literal("A new Generation of Boiling"))
@@ -231,9 +233,12 @@ public class DiggyMachines {
                     .where('S', controller(blocks(definition.get())))
                     .where('#', Predicates.any())
                     .where('C', blocks(CASING_BRONZE_BRICKS.get())
-                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(1))
-                        .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1)))
+                            .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMinGlobalLimited(1)
+                                    .setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setMinGlobalLimited(1)
+                                    .setPreviewCount(1))
+                            .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMinGlobalLimited(1)
+                                    .setPreviewCount(1)))
                     .build())
             .workableCasingModel(GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
                     GTCEu.id("block/generators/boiler/solar"))
@@ -270,7 +275,9 @@ public class DiggyMachines {
             .recipeModifiers(GTRecipeModifiers.PARALLEL_HATCH)
             .appearanceBlock(CYCLOTRON_CASING)
             .langValue("Cyclotron")
-            .tooltips(Component.literal("Lightweight alternative to the Fusion Reactor. Allows fusing of elements to create heavier ones, and the manipulation of quantum particles."))
+            .tooltips(Component.literal(
+                    "Lightweight alternative to the Fusion Reactor. Allows fusing of elements to create heavier ones, and the manipulation of quantum particles.")
+                    .withStyle(ChatFormatting.GRAY))
             .pattern(definition -> FactoryBlockPattern.start()
                     .aisle("...........", "....CCC....", "...........")
                     .aisle("....CCC....", "..CC...CC..", "....CCC....")
@@ -289,26 +296,113 @@ public class DiggyMachines {
                             .or(autoAbilities(true, false, false)))
                     .where('.', Predicates.any())
                     .build())
-            /*.shapeInfos(definition -> {
-                List<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
-                var builder = MultiblockShapeInfo.builder()
-                        .aisle("##F##", "##F##", "##F##", "##F##", "#####")
-                        .aisle("#XXX#", "#CCE#", "#CCC#", "#CCC#", "#####")
-                        .aisle("FXXXF", "FC#CF", "FCGCF", "FCGCF", "##G##")
-                        .aisle("#XXX#", "#CSC#", "#IMO#", "#CCC#", "#####")
-                        .where('S', definition, Direction.NORTH)
-                        .where('E', ENERGY_INPUT_HATCH[GTValues.HV], Direction.SOUTH)
-                        .where('I', ITEM_IMPORT_BUS[GTValues.LV], Direction.NORTH)
-                        .where('O', ITEM_EXPORT_BUS[GTValues.LV], Direction.NORTH)
-                        .where('M', MAINTENANCE_HATCH, Direction.SOUTH)
-                        .where('X', CASING_TITANIUM_STABLE)
-                        .where('C', GALAXYSPACE_GRADE_CASING)
-                        .where('G', CASING_TITANIUM_GEARBOX)
-                        .where('F', ChemicalHelper.getBlock(TagPrefix.frameGt, GTMaterials.StainlessSteel))
-                        .where('#', Blocks.AIR.defaultBlockState());
-                return shapeInfo;
-            })*/
+            /*
+             * .shapeInfos(definition -> {
+             * List<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
+             * var builder = MultiblockShapeInfo.builder()
+             * .aisle("##F##", "##F##", "##F##", "##F##", "#####")
+             * .aisle("#XXX#", "#CCE#", "#CCC#", "#CCC#", "#####")
+             * .aisle("FXXXF", "FC#CF", "FCGCF", "FCGCF", "##G##")
+             * .aisle("#XXX#", "#CSC#", "#IMO#", "#CCC#", "#####")
+             * .where('S', definition, Direction.NORTH)
+             * .where('E', ENERGY_INPUT_HATCH[GTValues.HV], Direction.SOUTH)
+             * .where('I', ITEM_IMPORT_BUS[GTValues.LV], Direction.NORTH)
+             * .where('O', ITEM_EXPORT_BUS[GTValues.LV], Direction.NORTH)
+             * .where('M', MAINTENANCE_HATCH, Direction.SOUTH)
+             * .where('X', CASING_TITANIUM_STABLE)
+             * .where('C', GALAXYSPACE_GRADE_CASING)
+             * .where('G', CASING_TITANIUM_GEARBOX)
+             * .where('F', ChemicalHelper.getBlock(TagPrefix.frameGt, GTMaterials.StainlessSteel))
+             * .where('#', Blocks.AIR.defaultBlockState());
+             * return shapeInfo;
+             * })
+             */
             .workableCasingModel(DiggyCore.id("block/casings/cyclotron_casing"),
                     GTCEu.id("block/multiblock/fusion_reactor"))
+            .register();
+
+    public static final MultiblockMachineDefinition AI_TRAINING_CENTER = REGISTRATE
+            .multiblock("ai_training_center", WorkableElectricMultiblockMachine::new)
+            .rotationState(RotationState.ALL)
+            .recipeTypes(DiggyRecipeTypes.AI_TRAINING_CENTER_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.PARALLEL_HATCH)
+            .appearanceBlock(TURING_CASING)
+            .langValue("AI Training Center")
+            .tooltips(Component.literal(
+                    "A datacenter that trains AI models to assist in engineering and research.")
+                    .withStyle(ChatFormatting.GRAY))
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("TTTTTTT", "FF...FF", "F.F.F.F", "F..F..F", "F.F.F.F", "FF...FF")
+                    .aisle("TTTTTTT", "FM.M.MF", ".M.M.M.", ".M.M.M.", ".......", "F.....F")
+                    .aisle("TTTTTTT", ".M...M.", "FM...MF", ".M...M.", "F.....F", ".......")
+                    .aisle("TTTTTTT", ".M.M.M.", ".M.M.M.", "FM.M.MF", ".......", ".......")
+                    .aisle("TTTTTTT", ".M...M.", "FM...MF", ".M...M.", "F.....F", ".......")
+                    .aisle("TTTTTTT", "FM.M.MF", ".M.M.M.", ".M.M.MF", ".......", "F.....F")
+                    .aisle("TTTSTTT", "F.....F", "F.....F", "F.....F", "F.....F", "F.....F")
+                    .where('S', controller(blocks(definition.get())))
+                    .where('T', blocks(TURING_CASING.get())
+                            .or(autoAbilities(definition.getRecipeTypes()))
+                            .or(autoAbilities(true, false, false)))
+                    .where('M', blocks(DfPlanetsModBlocks.MICROPROCESSOR_MAINFRAME.get()))
+                    .where('F', Predicates.frames(DiggyMetallurgicAndGems.TERFENOL_X))
+                    .where('.', Predicates.any())
+                    .build())
+            .workableCasingModel(DiggyCore.id("block/casings/turing/side"),
+                    GTCEu.id("block/multiblock/fusion_reactor"))
+            .register();
+
+    public static final MultiblockMachineDefinition CHEMICAL_PLANT = REGISTRATE
+            .multiblock("chemical_plant", WorkableElectricMultiblockMachine::new)
+            .rotationState(RotationState.ALL)
+            .recipeTypes(DiggyRecipeTypes.CHEMICAL_PLANT_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.PARALLEL_HATCH)
+            .appearanceBlock(GCYMBlocks.CASING_CORROSION_PROOF)
+            .langValue("Amaranth Industries Chemical Plant")
+            .tooltips(Component.literal("Does complex chemical recipes, such as rocket fuel.").withStyle(ChatFormatting.GRAY),
+                    Component.literal("This time, it's not ExxonMobil, unfortunately. But Amaranth is still good right?").withStyle(ChatFormatting.GRAY),
+                    Component.literal("Credit to GT New Horizons for the structure!").withStyle(ChatFormatting.YELLOW))
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("CCCCCCC", "C.....C", "C.....C", "C.....C", "C.....C", "C.....C", "CCCCCCC")
+                    .aisle("CCCCCCC", ".MMMMM.", ".......", ".......", ".......", ".MMMMM.", "CCCCCCC")
+                    .aisle("CCCCCCC", ".MMMMM.", "..PPP..", "..III..", "..PPP..", ".MMMMM.", "CCCCCCC")
+                    .aisle("CCCCCCC", ".MMMMM.", "..PPP..", "..I.I..", "..PPP..", ".MMMMM.", "CCCCCCC")
+                    .aisle("CCCCCCC", ".MMMMM.", "..PPP..", "..III..", "..PPP..", ".MMMMM.", "CCCCCCC")
+                    .aisle("CCCCCCC", ".MMMMM.", ".......", ".......", ".......", ".MMMMM.", "CCCCCCC")
+                    .aisle("CCCSCCC", "C.....C", "C.....C", "C.....C", "C.....C", "C.....C", "CCCCCCC")
+                    .where('S', controller(blocks(definition.get())))
+                    .where('C', blocks(GCYMBlocks.CASING_CORROSION_PROOF.get())
+                            .or(autoAbilities(definition.getRecipeTypes()))
+                            .or(autoAbilities(true, false, false)))
+                    .where('M', blocks(MACHINE_CASING_HV.get()))
+                    .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get())) //WHY DID THEY NAME IT LIKE THAT
+                    .where('I', blocks(GCYMBlocks.MOLYBDENUM_DISILICIDE_COIL_BLOCK.get()))
+                    .where('.', Predicates.any())
+                    .build())
+            .workableCasingModel(GTCEu.id("block/casings/gcym/corrosion_proof_casing"),
+                    DiggyCore.id("block/multiblock/plusplus"))
+            .register();
+
+    public static final MultiblockMachineDefinition ASTRO_MINER = REGISTRATE
+            .multiblock("astro_miner", WorkableElectricMultiblockMachine::new)
+            .rotationState(RotationState.ALL)
+            .recipeTypes(DiggyRecipeTypes.ASTRO_MINER_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.PARALLEL_HATCH)
+            .appearanceBlock(CASING_STEEL_SOLID)
+            .langValue("Astro-Miner")
+            .tooltips(Component.literal("Mines ores on other planets.").withStyle(ChatFormatting.GRAY),
+                    Component.literal("This is totally not because I couldn't get ore veins to work with Ad Astra.").withStyle(ChatFormatting.GRAY))
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("CCC", "CCC", ".F.", ".F.", "CCC")
+                    .aisle("CCC", "CCC", "FCF", "FCF", "CCC")
+                    .aisle("CCC", "CSC", ".F.", ".F.", "CCC")
+                    .where('S', controller(blocks(definition.get())))
+                    .where('C', blocks(CASING_STEEL_SOLID.get())
+                            .or(autoAbilities(definition.getRecipeTypes()))
+                            .or(autoAbilities(true, false, false)))
+                    .where('F', Predicates.frames(DiggyMetallurgicAndGems.TERFENOL_D))
+                    .where('.', Predicates.any())
+                    .build())
+            .workableCasingModel(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
+                    DiggyCore.id("block/multiblock/plusplus2"))
             .register();
 }

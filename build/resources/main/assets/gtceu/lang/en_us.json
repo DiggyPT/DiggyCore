@@ -88,7 +88,12 @@
    "block.gtceu.decay_generator": "Decay Generator",
    "gtceu.decay_generator": "Decay Generator",
    "gtceu.cyclotron": "Cyclotron",
-   
+   "gtceu.particle_beam_engraver": "Particle Beam Engraver",
+   "gtceu.apiary": "Apiary",
+   "gtceu.gc_compressor": "GC Compressor",
+   "gtceu.ai_training_center": "AI Training Center",
+   "gtceu.chemical_plant": "Chemical Plant",
+
    "block.gtceu.ion_exchanger": "Ion Exchanger",
    "gtceu.ion_exchanger": "Ion Exchange",
    "block.gtceu.froth_flotator": "Froth Flotator",

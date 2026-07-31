@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "diggycore:block/turing_casing"
+    }
+  }
+}

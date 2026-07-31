@@ -47,8 +47,15 @@ public class DiggyMetallurgicAndGems {
     public static Material HEAVY_DUTY_PLATING_TIER_10;
     public static Material HEAVY_DUTY_PLATING_TIER_11;
 
-    // Other alloys.
+    // Other materials.
     public static Material MARAGING_STEEL_200;
+    public static Material TERFENOL_D;
+    public static Material TERFENOL_X;
+    public static Material HIROKUNO;
+    public static Material PROTOVERSE_COATED_HIROKUNO;
+    public static Material DESH_OXIDE;
+    public static Material IRRADIATED_DESH_OXIDE;
+    public static Material PBK;
 
     public static void register() {
         ISAACMANITE = new Material.Builder(DiggyCore.id("isaacmanite"))
@@ -57,7 +64,7 @@ public class DiggyMetallurgicAndGems {
                 .secondaryColor(0x2799b0)
                 .iconSet(MaterialIconSet.OPAL)
                 .components(Thulium, 5, Holmium, 7, Oxygen, 4, BOHEMIUM, 15)
-                .flags(DISABLE_DECOMPOSITION)
+                .flags(DISABLE_DECOMPOSITION, GENERATE_LENS)
                 .buildAndRegister();
 
         GUNNERITE = new Material.Builder(DiggyCore.id("gunnerite"))
@@ -266,6 +273,69 @@ public class DiggyMetallurgicAndGems {
                 .blastTemp(3000, BlastProperty.GasTier.MID)
                 .langValue("Heavy-Duty (Tier XI)")
                 .appendFlags(EXT_METAL)
+                .buildAndRegister();
+
+        HIROKUNO = new Material.Builder(DiggyCore.id("hirokuno"))
+                .ingot()
+                .color(0xfce803)
+                .iconSet(DiggyMaterialSet.MARINE)
+                .components(Gadolinium, 11, Cobalt, 6, UNIFON, 5, CENTAURIUM, 3, PHOENICIUM, 1)
+                .langValue("Hirokuno")
+                .appendFlags(EXT2_METAL)
+                .blastTemp(4135, BlastProperty.GasTier.HIGH)
+                .buildAndRegister();
+
+        PROTOVERSE_COATED_HIROKUNO = new Material.Builder(DiggyCore.id("protoverse_coated_hirokuno"))
+                .ingot()
+                .color(0xdb9327)
+                .iconSet(DiggyMaterialSet.MARINE)
+                // .formula("")
+                .langValue("Protoverse-Coated Hirokuno")
+                .appendFlags(EXT2_METAL, NO_WORKING)
+                .blastTemp(7523, BlastProperty.GasTier.MID)
+                .buildAndRegister();
+
+        DESH_OXIDE = new Material.Builder(DiggyCore.id("desh_oxide"))
+                .dust()
+                .color(0xe06e51)
+                .iconSet(MaterialIconSet.ROUGH)
+                .components(DESH, 1, Oxygen, 2)
+                .langValue("Desh Oxide")
+                .buildAndRegister();
+
+        IRRADIATED_DESH_OXIDE = new Material.Builder(DiggyCore.id("irradiated_desh_oxide"))
+                .dust()
+                .color(0xe06e51).secondaryColor(0xe0d651)
+                .iconSet(MaterialIconSet.RADIOACTIVE)
+                .formula("DδO₂???")
+                .langValue("Irradiated Desh Oxide")
+                .buildAndRegister();
+
+        PBK = new Material.Builder(DiggyCore.id("pbk"))
+                .gem()
+                .color(0xeeff80)
+                .iconSet(MaterialIconSet.QUARTZ)
+                .components(IRRADIATED_DESH_OXIDE, 1, Dysprosium, 1)
+                .langValue("PBK Crystal")
+                .flags(GENERATE_LENS)
+                .buildAndRegister();
+
+        TERFENOL_D = new Material.Builder(DiggyCore.id("terfenol_d"))
+                .ingot()
+                .color(0x81B73A)
+                .iconSet(DiggyMaterialSet.MARINE)
+                .components(Terbium, 3, Dysprosium, 7, Iron, 20)
+                .langValue("Terfenol-D")
+                .appendFlags(EXT_METAL, GENERATE_FRAME)
+                .buildAndRegister();
+
+        TERFENOL_X = new Material.Builder(DiggyCore.id("terfenol_x"))
+                .ingot()
+                .color(0x234437)
+                .iconSet(MaterialIconSet.DULL)
+                .components(Terbium, 3, DESH, 7, Iron, 20)
+                .langValue("Terfenol-X")
+                .appendFlags(EXT_METAL, GENERATE_FRAME)
                 .buildAndRegister();
     }
 }

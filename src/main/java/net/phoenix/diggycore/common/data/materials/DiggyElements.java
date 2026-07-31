@@ -72,8 +72,8 @@ public class DiggyElements {
     }
 
     private static long protonsToNeutrons(long protons) {
-        return (long) Math.floor(0.12522539 * (protons ^ 2) - 29.278236 * (protons) + 1887.26392); // this is the
-                                                                                                   // outputof a linear
+        return (long) Math.floor(0.12522539 * (protons ^ 2) - 29.278236 * (protons) + 1887.26392); // this is the output
+                                                                                                   // of a linear
                                                                                                    // regression
     }
 }

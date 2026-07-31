@@ -9,7 +9,9 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
 
+import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -21,16 +23,27 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.phoenix.diggycore.common.DiggyPlanetUtils;
 import net.phoenix.diggycore.common.block.DiggyBlocks;
 import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
 import net.phoenix.diggycore.common.data.materials.*;
+import net.phoenix.diggycore.common.data.recipe.DiggyCraftingComponents;
 import net.phoenix.diggycore.common.item.DiggyItems;
 import net.phoenix.diggycore.common.machine.DiggyMachines;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.Tesselator;
+import com.mojang.blaze3d.vertex.VertexFormat;
+import com.mojang.math.Axis;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import earth.terrarium.adastra.api.client.events.AdAstraClientEvents;
+import earth.terrarium.adastra.client.utils.DimensionRenderingUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static earth.terrarium.adastra.client.screens.PlanetsScreen.drawCircles;
 import static net.phoenix.diggycore.common.registry.DiggyRegistration.REGISTRATE;
 
 @Mod(DiggyCore.MOD_ID)
@@ -107,8 +120,8 @@ public class DiggyCore {
         DiggyBlocks.init();
         DiggyItems.init();
         DiggyMaterialFlags.init();
+        //DiggyCraftingComponents.init();
 
-        // DiggyAstraItems.ITEMS.init();
         // PhoenixDatagen.init();
     }
 
@@ -134,6 +147,7 @@ public class DiggyCore {
         DiggyNewElementsAndAddFlags.register();
         ElementMaterials.register();
         AdvancedChemMaterials.register();
+        BasicChemistryMaterials.register();
         DiggyMetallurgicAndGems.register();
     }
 
@@ -174,5 +188,29 @@ public class DiggyCore {
      */
     public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {
         // CustomSounds.init();
+    }
+
+    static {
+        AdAstraClientEvents.RenderSolarSystemEvent.register((graphics, solarSystem, width, height) -> {
+            if (DiggyPlanetUtils.TAU_CETI.equals(solarSystem)) {
+                Tesselator tessellator = Tesselator.getInstance();
+                BufferBuilder bufferBuilder = tessellator.getBuilder();
+                RenderSystem.setShader(GameRenderer::getPositionColorShader);
+                bufferBuilder.begin(VertexFormat.Mode.DEBUG_LINES, DefaultVertexFormat.POSITION_COLOR);
+                drawCircles(1, 1, -16744320, bufferBuilder, width, height);
+                tessellator.end();
+                graphics.blit(DimensionRenderingUtils.SUN, width / 2 - 8, height / 2 - 8, 0.0F, 0.0F, 16, 16, 16, 16);
+                float rotation = (float) Util.getMillis() / 100.0F % 360.0F;
+
+                for(int i = 1; i < 4; ++i) {
+                    graphics.pose().pushPose();
+                    graphics.pose().translate((float)width / 2.0F, (float)height / 2.0F, 0.0F);
+                    graphics.pose().mulPose(Axis.ZP.rotationDegrees(rotation * (float)(4 - i) / 2.0F));
+                    graphics.pose().translate((float)(31 * i - 10), 0.0F, 0.0F);
+                    graphics.blit(DiggyPlanetUtils.TAU_CETI_TEXTURES.get(i - 1), 0, 0, 0.0F, 0.0F, 12, 12, 12, 12);
+                    graphics.pose().popPose();
+                }
+            }
+        });
     }
 }

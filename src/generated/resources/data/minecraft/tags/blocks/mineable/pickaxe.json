@@ -5,6 +5,7 @@
     "diggycore:cyclotron_casing",
     "diggycore:ion_engine",
     "diggycore:alcubierre_drive",
-    "diggycore:tegan_drive"
+    "diggycore:tegan_drive",
+    "diggycore:turing_casing"
   ]
 }

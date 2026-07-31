@@ -224,6 +224,10 @@ public class DiggyNewElementsAndAddFlags {
         material.addFlags(GENERATE_VIAL, GENERATE_DOUBLE_INGOT);
     }
 
+    public static void addVialFlag(Material material) {
+        material.addFlags(GENERATE_VIAL);
+    }
+
     public static void addBeeFlags(Material material) {
         material.addFlags(GENERATE_BEE_COMB);
     }
@@ -233,8 +237,19 @@ public class DiggyNewElementsAndAddFlags {
         addDiggyFlags(Copper);
         addDiggyFlags(Tin);
         addDiggyFlags(Zinc);
-        addDiggyFlags(Zirconium);
-        addDiggyFlags(Hafnium);
+
+        addVialFlag(Hydrogen);
+        addVialFlag(Deuterium);
+        addVialFlag(Tritium);
+        addVialFlag(Helium);
+        addVialFlag(Lithium);
+        addVialFlag(Beryllium);
+        addVialFlag(Carbon);
+        addVialFlag(Boron);
+        addVialFlag(Nitrogen);
+        addVialFlag(Oxygen);
+        addVialFlag(Fluorine);
+        addVialFlag(Neon);
 
         addBasicFlags(Dysprosium);
         addBasicFlags(Praseodymium);
@@ -284,6 +299,8 @@ public class DiggyNewElementsAndAddFlags {
         addBasicFlags(Tennessine);
         addBasicFlags(Francium);
         addBasicFlags(Astatine);
+        addBasicFlags(Hafnium);
+        addBasicFlags(Zirconium);
 
         // AHHHHHHHHHHHHHHHHHHHHHHHHHH
         addBeeFlags(Iron);

@@ -42,6 +42,7 @@ public class DiggySpaceflightRecipes {
         ASSEMBLER_RECIPES.recipeBuilder("diggycore:casing_galaxyspace_grade")
                 .inputItems(plate, MARAGING_STEEL_200, 6)
                 .inputItems(frameGt, Invar)
+                .inputFluids(BorosilicateGlass, 2000)
                 .circuitMeta(6)
                 .outputItems(
                         DiggyBlocks.GALAXYSPACE_GRADE_CASING.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))

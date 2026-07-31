@@ -22,5 +22,15 @@ public class MachineMakeRecipes {
                 'W', CABLE,
                 'C', Tags.Items.FENCES_WOODEN,
                 'P', PLATE);
+
+        registerMachineRecipe(provider, DiggyMachines.PARTICLE_BEAM_ENGRAVER,
+                "PCP",
+                "EME",
+                "WEW",
+                'M', HULL,
+                'E', CIRCUIT,
+                'W', CABLE,
+                'C', EMITTER,
+                'P', FIELD_GENERATOR);
     }
 }

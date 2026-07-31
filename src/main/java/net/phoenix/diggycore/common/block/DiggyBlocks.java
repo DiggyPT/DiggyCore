@@ -5,16 +5,16 @@ import com.gregtechceu.gtceu.api.block.IFilterType;
 import com.gregtechceu.gtceu.common.data.models.GTModels;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.phoenix.diggycore.DiggyCore;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
@@ -48,7 +48,8 @@ public class DiggyBlocks {
                 .register();
     }
 
-    private static @NotNull BlockEntry<Block> registerColumnBlock(String name, String id, String textureSide, String textureEnd, String tooltip,
+    private static @NotNull BlockEntry<Block> registerColumnBlock(String name, String id, String textureSide,
+                                                                  String textureEnd, String tooltip,
                                                                   NonNullBiFunction<Block, Item.Properties, ? extends BlockItem> func) {
         return REGISTRATE
                 .block(id, Block::new)
@@ -59,12 +60,49 @@ public class DiggyBlocks {
                         .strength(5.0f, 6.0f)
                         .requiresCorrectToolForDrops())
                 .blockstate((ctx, prov) -> prov.simpleBlock(ctx.getEntry(),
-                        prov.models().cubeColumn(ctx.getName(), DiggyCore.id("block/" + textureSide), DiggyCore.id("block/" + textureEnd))))
+                        prov.models().cubeColumn(ctx.getName(), DiggyCore.id("block/" + textureSide),
+                                DiggyCore.id("block/" + textureEnd))))
                 .lang(name)
                 .item((b, p) -> new BlockItem(b, p) {
 
                     @Override
-                    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents,
+                    public void appendHoverText(ItemStack stack, @Nullable Level level,
+                                                List<Component> tooltipComponents,
+                                                TooltipFlag isAdvanced) {
+                        super.appendHoverText(stack, level, tooltipComponents, isAdvanced);
+                        tooltipComponents.add(1, Component.literal(tooltip).withStyle(ChatFormatting.GRAY));
+                    }
+                })
+                .build()
+                .register();
+    }
+
+    private static @NotNull BlockEntry<Block> registerEngine(String name, String id, String tooltip) {
+        return registerColumnBlock(name, id, "rocket_engines/" + id + "/side", "rocket_engines/" + id + "/end", tooltip,
+                BlockItem::new);
+    }
+
+    private static @NotNull BlockEntry<Block> registerMainframeBlock(String name, String id, @Nullable String tooltip) {
+        ResourceLocation sideTexture = DiggyCore.id("block/mainframe_blocks/" + id + "/side");
+        ResourceLocation frontTexture = DiggyCore.id("block/mainframe_blocks/" + id + "/front");
+        ResourceLocation blankTexture = DiggyCore.id("block/mainframe_blocks/blank");
+        return REGISTRATE
+                .block(id, Block::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .tag(CustomTags.MINEABLE_WITH_CONFIG_VALID_PICKAXE_WRENCH)
+                .properties(p -> p.isValidSpawn((state, level, pos, ent) -> false)
+                        .strength(5.0f, 6.0f)
+                        .requiresCorrectToolForDrops())
+                .blockstate((ctx, prov) -> prov.simpleBlock(ctx.getEntry(),
+                        prov.models().cube(ctx.getName(), blankTexture, blankTexture, frontTexture, blankTexture,
+                                sideTexture, blankTexture)))
+                .lang(name)
+                .item((b, p) -> new BlockItem(b, p) {
+
+                    @Override
+                    public void appendHoverText(ItemStack stack, @Nullable Level level,
+                                                List<Component> tooltipComponents,
                                                 TooltipFlag isAdvanced) {
                         super.appendHoverText(stack, level, tooltipComponents, isAdvanced);
                         tooltipComponents.add(1, Component.literal(tooltip));
@@ -72,11 +110,6 @@ public class DiggyBlocks {
                 })
                 .build()
                 .register();
-    }
-
-    private static @NotNull BlockEntry<Block> registerEngine(String name, String id, String tooltip)
-    {
-        return registerColumnBlock(name, id, "rocket_engines/" + id + "/side", "rocket_engines/" + id + "/end", tooltip, BlockItem::new);
     }
 
     private static @NotNull BlockEntry<Block> registerDirtBlock(String name, String id, String texture,
@@ -134,9 +167,13 @@ public class DiggyBlocks {
 
     public static BlockEntry<Block> ALCUBIERRE_DRIVE = registerEngine("Alcubierre Drive", "alcubierre_drive",
             "Uses exotic matter to warp spacetime, contracting it in front of the rocket and distending it in the back of the rocket. " +
-            "The rocket can then travel faster-than-light to an outside observer.");
+                    "The rocket can then travel faster-than-light to an outside observer.");
 
     public static BlockEntry<Block> TEGAN_DRIVE = registerEngine("Tegan Drive", "tegan_drive",
             "Breaches the inner frame of reality and navigates through the fractal structures within to " +
                     "shorten interstellar distances drastically.");
+
+    public static BlockEntry<Block> TURING_CASING = registerColumnBlock("Turing Casing", "turing_casing",
+            "casings/turing/side", "casings/turing/end",
+            "A less advanced iteration of the Computer Casing.", BlockItem::new);
 }

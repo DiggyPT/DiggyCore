@@ -3,12 +3,12 @@ package net.phoenix.diggycore.common.data.recipe.generated;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
 import net.phoenix.diggycore.common.data.materials.DiggyMaterialFlags;
 
@@ -31,7 +31,7 @@ public class DiggyMaterialPartRecipeGen {
 
             if (material == null || material.isNull()) return;
 
-            ItemStack inputStack = ChemicalHelper.get(TagPrefix.ingot, material, 2);
+            ItemStack inputStack = ChemicalHelper.get(ingot, material, 2);
 
             if (inputStack.isEmpty()) return;
 
@@ -55,27 +55,55 @@ public class DiggyMaterialPartRecipeGen {
 
             if (material == null || material.isNull()) return;
 
+            boolean isFluid = false;
+            FluidStack inputStack2 = null;
             ItemStack inputStack = ChemicalHelper.get(dustSmall, material, 1);
 
-            if (inputStack.isEmpty()) return;
+            if (inputStack.isEmpty() && material.hasFluid()) {
+                inputStack2 = material.getFluid(100);
+                isFluid = true;
+            }
+
+            if (inputStack == null && inputStack2 == null) return;
 
             ItemStack vialStack = ChemicalHelper.get(DiggyMaterialFlags.vial, material, 1);
             if (vialStack.isEmpty()) return;
 
-            GTRecipeBuilder builderC = GTRecipeTypes.COMPRESSOR_RECIPES.recipeBuilder(
-                    "diggycore:" + material.getName() + "_vial")
-                    .EUt(GTValues.VH[GTValues.LV])
-                    .duration(50)
-                    .inputItems(inputStack)
-                    .circuitMeta(3)
-                    .outputItems(vialStack);
+            GTRecipeBuilder builderC = null;
 
-            GTRecipeBuilder builderE = GTRecipeTypes.EXTRACTOR_RECIPES.recipeBuilder(
-                    "diggycore:" + material.getName() + "_vial_to_small_dust")
-                    .EUt(GTValues.VH[GTValues.LV])
-                    .duration(15)
-                    .inputItems(vialStack)
-                    .outputItems(inputStack);
+            if (!isFluid) {
+                builderC = GTRecipeTypes.COMPRESSOR_RECIPES.recipeBuilder(
+                        "diggycore:" + material.getName() + "_vial")
+                        .EUt(GTValues.VH[GTValues.LV])
+                        .duration(50)
+                        .inputItems(inputStack)
+                        .circuitMeta(3)
+                        .outputItems(vialStack);
+            } else {
+                builderC = GTRecipeTypes.FLUID_SOLIDFICATION_RECIPES.recipeBuilder(
+                        "diggycore:" + material.getName() + "_vial")
+                        .EUt(GTValues.VH[GTValues.LV])
+                        .duration(50)
+                        .inputFluids(inputStack2)
+                        .outputItems(vialStack);
+            }
+
+            GTRecipeBuilder builderE = null;
+            if (!isFluid) {
+                builderE = GTRecipeTypes.EXTRACTOR_RECIPES.recipeBuilder(
+                        "diggycore:" + material.getName() + "_vial_to_small_dust")
+                        .EUt(GTValues.VH[GTValues.LV])
+                        .duration(15)
+                        .inputItems(vialStack)
+                        .outputItems(inputStack);
+            } else {
+                builderE = GTRecipeTypes.EXTRACTOR_RECIPES.recipeBuilder(
+                        "diggycore:" + material.getName() + "_vial_to_small_dust")
+                        .EUt(GTValues.VH[GTValues.LV])
+                        .duration(15)
+                        .inputItems(vialStack)
+                        .outputFluids(inputStack2);
+            }
 
             builderC.save(provider);
             builderE.save(provider);
@@ -88,7 +116,7 @@ public class DiggyMaterialPartRecipeGen {
 
             if (material == null || material.isNull()) return;
 
-            ItemStack outputStack = ChemicalHelper.get(TagPrefix.rawOre, material, 1);
+            ItemStack outputStack = ChemicalHelper.get(rawOre, material, 1);
 
             if (outputStack.isEmpty()) return;
 
