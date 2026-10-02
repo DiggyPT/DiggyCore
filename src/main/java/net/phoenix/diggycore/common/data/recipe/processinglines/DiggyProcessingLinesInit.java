@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 public class DiggyProcessingLinesInit {
 
     public static void init(Consumer<FinishedRecipe> provider) {
-        DysprosiumLine.init(provider);
+        RareEarthsLine.init(provider);
+        ScandiumLine.init(provider);
     }
 }

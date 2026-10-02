@@ -1,16 +1,12 @@
 package net.phoenix.diggycore.common.data.recipe;
 
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMachines;
-import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 
 import net.mcreator.dfplanets.init.DfPlanetsModBlocks;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.phoenix.diggycore.common.block.DiggyBlocks;
 import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
 import net.phoenix.diggycore.common.data.materials.AdvancedChemMaterials;
-import net.phoenix.diggycore.common.machine.DiggyMachines;
 
 import java.util.function.Consumer;
 
@@ -20,30 +16,11 @@ import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 import static net.phoenix.diggycore.common.data.materials.DiggyMetallurgicAndGems.*;
 import static net.phoenix.diggycore.common.item.DiggyItems.*;
+import static net.phoenix.diggycore.common.utils.DiggyValues.SECOND;
 
 public class DiggyAIRecipes {
 
-    public static int SECOND = 20; // contrary to gtvalues one this one is a int not a long.
-
     public static void init(Consumer<FinishedRecipe> provider) {
-        ASSEMBLER_RECIPES.recipeBuilder("diggycore:casing_turing")
-                .inputItems(plate, MaragingSteel300, 6)
-                .inputItems(frameGt, TERFENOL_X)
-                .circuitMeta(6)
-                .outputItems(DiggyBlocks.TURING_CASING.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))
-                .duration(50).EUt(VH[IV])
-                .addMaterialInfo(true).save(provider);
-
-        ASSEMBLER_RECIPES.recipeBuilder("diggycore:ai_training_center")
-                .inputItems(plate, Dysprosium, 2)
-                .inputItems(GTItems.SENSOR_IV)
-                .inputItems(GTItems.ELECTRIC_MOTOR_IV, 2)
-                .inputItems(GTMachines.HULL[IV])
-                .inputItems(DiggyBlocks.TURING_CASING.asStack(), 2)
-                .inputItems(CustomTags.IV_CIRCUITS)
-                .outputItems(DiggyMachines.AI_TRAINING_CENTER.asStack())
-                .duration(50).EUt(VH[IV]).addMaterialInfo(true).save(provider);
-
         DiggyRecipeTypes.AI_TRAINING_CENTER_RECIPES.recipeBuilder("diggycore:tech_unit1")
                 .inputItems(GTItems.ELECTRIC_MOTOR_IV, 6)
                 .solderMultiplier(16)

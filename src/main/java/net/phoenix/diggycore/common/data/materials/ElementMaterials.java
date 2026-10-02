@@ -43,6 +43,8 @@ public class ElementMaterials {
         GTMaterials.Nobelium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Lawrencium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Promethium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        GTMaterials.Hafnium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        GTMaterials.Zirconium.setProperty(PropertyKey.INGOT, new IngotProperty());
         // Superheavy elements (period 7)
         GTMaterials.Rutherfordium.setProperty(PropertyKey.INGOT, new IngotProperty());
         GTMaterials.Dubnium.setProperty(PropertyKey.INGOT, new IngotProperty());

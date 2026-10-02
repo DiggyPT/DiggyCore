@@ -75,6 +75,8 @@ colors:
     - [antirizz_quark]:AF30A6
     - [antiproton]:00BCCD
     - [antineutron]:CDA700
+    - [protoverse]:CF5075
+    - [axion]:003A0D
 
   # Named gradient/effect codes using bracket syntax.
   # Format: '[name]:colorSpeed:moveSpeed:movementId:hex1,hex2...'

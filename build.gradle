@@ -150,7 +150,15 @@ dependencies {
     modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     modRuntimeOnly("dev.emi:emi-forge:${emi_version}+${minecraft_version}")
     modRuntimeOnly("curse.maven:jade-324717:5390389")
+
+    //PCC
     modRuntimeOnly("curse.maven:phoenixs-chromatic-colors-1483210:7985373")
+
+    //Diggyfactory planets
+    modImplementation("curse.maven:diggyfactory-planets-1564512:8267927")
+
+    //Phoenix Fission
+    modImplementation("curse.maven:phoenixs-fission-1443603:8861130")
 
     // GregTech and dependencies
     modImplementation("com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtceu_version}:slim") { transitive = false }

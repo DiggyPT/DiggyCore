@@ -93,13 +93,16 @@
    "gtceu.gc_compressor": "GC Compressor",
    "gtceu.ai_training_center": "AI Training Center",
    "gtceu.chemical_plant": "Chemical Plant",
+   "gtceu.vibration_sieve": "Vibration Sieve",
+   "gtceu.greenhouse": "Greenhouse",
+   "gtceu.casimir_generator": "Casimir Generator",
 
    "block.gtceu.ion_exchanger": "Ion Exchanger",
    "gtceu.ion_exchanger": "Ion Exchange",
    "block.gtceu.froth_flotator": "Froth Flotator",
    "gtceu.froth_flotator": "Froth Flotation",
    "block.gtceu.bio_reactor": "Bio-Reactor",
-   "gtceu.bio_reactor": "Bio-Reaction",
+   "gtceu.bio_reactor": "Bio Reactor",
 
    "tagprefix.vial": "%s Vial",
    "tagprefix.double_ingot": "Double %s Ingot",

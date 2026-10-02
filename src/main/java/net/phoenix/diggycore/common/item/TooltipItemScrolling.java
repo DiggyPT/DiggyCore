@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class TooltipItemScrolling extends Item {
+    // This is a certified DiggyPT original concept
 
     int stringSize = 32;
     private final Supplier<Component>[] tooltipBuilders;

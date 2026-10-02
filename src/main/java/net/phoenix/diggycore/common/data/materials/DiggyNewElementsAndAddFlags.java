@@ -33,6 +33,7 @@ public class DiggyNewElementsAndAddFlags {
     public static Material DESH;
     public static Material OSTRUM;
     public static Material CALORITE;
+    public static Material URANIUM_236;
 
     public static void register() {
         FEYNMANIUM = new Material.Builder(DiggyCore.id("feynmanium"))
@@ -183,15 +184,18 @@ public class DiggyNewElementsAndAddFlags {
                 .secondaryColor(0x968a1a)
                 .iconSet(MaterialIconSet.SHINY)
                 .element(DiggyElements.CENTAURIUM)
+                .appendFlags(EXT2_METAL, GENERATE_DENSE, GENERATE_FOIL, GENERATE_FRAME,
+                        GENERATE_VIAL)
                 .buildAndRegister();
 
         DESH = new Material.Builder(DiggyCore.id("desh"))
-                .ingot()
+                .ore().ingot()
                 .liquid(new FluidBuilder().temperature(1268))
                 .color(0xed8815)
                 .secondaryColor(0xeb4710)
                 .iconSet(MaterialIconSet.METALLIC)
                 .element(DiggyElements.DESH)
+                .appendFlags(EXT2_METAL)
                 .buildAndRegister();
 
         PHOENICIUM = new Material.Builder(DiggyCore.id("phoenicium"))
@@ -212,6 +216,18 @@ public class DiggyNewElementsAndAddFlags {
                 .iconSet(MaterialIconSet.DULL)
                 .element(DiggyElements.OSTRUM)
                 .langValue("Ostrum")
+                .appendFlags(EXT2_METAL)
+                .buildAndRegister();
+
+        URANIUM_236 = new Material.Builder(DiggyCore.id("uranium_236"))
+                .ingot()
+                .liquid(new FluidBuilder().temperature(1132))
+                .color(0x529649)
+                .secondaryColor(0x938F58)
+                .iconSet(MaterialIconSet.RADIOACTIVE)
+                .element(DiggyElements.URANIUM_236)
+                .langValue("Uranium 236")
+                .radioactiveHazard(1)
                 .buildAndRegister();
     }
 
@@ -250,6 +266,8 @@ public class DiggyNewElementsAndAddFlags {
         addVialFlag(Oxygen);
         addVialFlag(Fluorine);
         addVialFlag(Neon);
+        addVialFlag(URANIUM_236);
+        addVialFlag(Uranium235);
 
         addBasicFlags(Dysprosium);
         addBasicFlags(Praseodymium);

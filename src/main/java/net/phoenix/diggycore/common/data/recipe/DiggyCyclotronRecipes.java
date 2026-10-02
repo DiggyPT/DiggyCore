@@ -1,12 +1,8 @@
 package net.phoenix.diggycore.common.data.recipe;
 
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.config.ConfigHolder;
-import com.gregtechceu.gtceu.data.recipe.CustomTags;
-
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.phoenix.diggycore.common.block.DiggyBlocks;
 import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
+import net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags;
 
 import java.util.function.Consumer;
 
@@ -18,39 +14,11 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 import static net.phoenix.diggycore.common.data.materials.DiggyMaterialFlags.*;
 import static net.phoenix.diggycore.common.data.materials.DiggyMetallurgicAndGems.*;
 import static net.phoenix.diggycore.common.item.DiggyItems.*;
-import static net.phoenix.diggycore.common.machine.DiggyMachines.CYCLOTRON;
+import static net.phoenix.diggycore.common.utils.DiggyValues.SECOND;
 
 public class DiggyCyclotronRecipes {
 
-    public static int SECOND = 20; // contrary to gtvalues one this one is a int not a long.
-
     public static void init(Consumer<FinishedRecipe> provider) {
-        ASSEMBLER_RECIPES.recipeBuilder("diggycore:casing_cyclotron")
-                .inputItems(plate, Dysprosium, 6)
-                .inputItems(frameGt, Iridium)
-                .circuitMeta(6)
-                .outputItems(
-                        DiggyBlocks.CYCLOTRON_CASING.asStack(ConfigHolder.INSTANCE.recipes.casingsPerCraft))
-                .duration(50).EUt(VH[LuV])
-                .addMaterialInfo(true).save(provider);
-
-        ASSEMBLY_LINE_RECIPES.recipeBuilder("diggycore:cyclotron")
-                .inputItems(DiggyBlocks.CYCLOTRON_CASING.asStack())
-                .inputItems(CustomTags.LuV_CIRCUITS, 4)
-                .inputItems(plateDouble, METEORIC_IRON)
-                .inputItems(plateDouble, TERFENOL_D)
-                .inputItems(FIELD_GENERATOR_IV, 2)
-                .inputItems(HIGH_POWER_INTEGRATED_CIRCUIT, 48)
-                .inputItems(wireGtSingle, SamariumIronArsenicOxide, 16)
-                .inputFluids(SolderingAlloy.getFluid(L * 8))
-                .inputFluids(Epoxy.getFluid(L * 8))
-                .outputItems(CYCLOTRON.asStack())
-                .scannerResearch(b -> b
-                        .researchStack(ChemicalHelper.get(vial, Deuterium))
-                        .duration(1200)
-                        .EUt(VA[IV]))
-                .duration(800).EUt(VA[LuV]).save(provider);
-
         DiggyRecipeTypes.CYCLOTRON_RECIPES.recipeBuilder("diggycore:californium")
                 .EUt(VH[LuV])
                 .duration(12 * SECOND)
@@ -151,5 +119,30 @@ public class DiggyCyclotronRecipes {
                 .inputItems(PROTON.asStack())
                 .circuitMeta(5)
                 .outputItems(TOP_QUARK.asStack(), TOP_ANTIQUARK.asStack()).save(provider);
+
+        DiggyRecipeTypes.CYCLOTRON_RECIPES.recipeBuilder("diggycore:technetium_make")
+                .EUt(VH[LuV])
+                .duration(12 * SECOND)
+                .inputItems(vial, Molybdenum, 1)
+                .inputItems(vial, Hydrogen, 1)
+                .circuitMeta(1)
+                .chancedOutput(vial, Technetium, 9000, 1).save(provider);
+
+        DiggyRecipeTypes.CYCLOTRON_RECIPES.recipeBuilder("diggycore:uranium_236_make")
+                .EUt(VH[LuV])
+                .duration(12 * SECOND)
+                .inputItems(vial, Uranium235, 1)
+                .inputItems(NEUTRON, 1)
+                .circuitMeta(1)
+                .chancedOutput(vial, DiggyNewElementsAndAddFlags.URANIUM_236, 9000, 1)
+                .outputItems(PHOTON, 1).save(provider);
+
+        DiggyRecipeTypes.CYCLOTRON_RECIPES.recipeBuilder("diggycore:neptunium_make")
+                .EUt(VH[LuV])
+                .duration(12 * SECOND)
+                .inputItems(vial, DiggyNewElementsAndAddFlags.URANIUM_236, 1)
+                .inputItems(NEUTRON, 1)
+                .circuitMeta(1)
+                .chancedOutput(vial, Neptunium, 9000, 1).save(provider);
     }
 }

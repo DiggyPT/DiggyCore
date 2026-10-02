@@ -1,14 +1,12 @@
 package net.phoenix.diggycore.common.item;
 
 import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.common.registry.GTRegistration;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static net.phoenix.diggycore.common.registry.DiggyRegistration.REGISTRATE;
@@ -59,7 +57,7 @@ public class DiggyItems {
     }
 
     public static ItemEntry<TooltipItem> registerComposite(String id, String lang, String texture, String mass,
-                                                                   String charge, String spin, String type, String comp) {
+                                                           String charge, String spin, String type, String comp) {
         return REGISTRATE
                 .item(id, p -> new TooltipItem(p,
                         () -> Component.literal("§cMASS: ").append(mass).append("eV"),
@@ -73,7 +71,7 @@ public class DiggyItems {
     }
 
     public static ItemEntry<TooltipItem> registerCompositePCC(String id, String lang, String texture, String mass,
-                                                           String charge, String spin, String type, String comp) {
+                                                              String charge, String spin, String type, String comp) {
         return REGISTRATE
                 .item(id, p -> new TooltipItem(p,
                         () -> Component.literal("§cMASS: ").append(mass).append("eV"),
@@ -207,25 +205,27 @@ public class DiggyItems {
     public static ItemEntry<TooltipItem> HIGGS_BOSON = registerParticle("higgs_boson", "Higgs Boson", "higgs", "125 G",
             "0", "1", "Scalar Boson");
 
-    //composites
+    // composites
     public static ItemEntry<TooltipItem> PROTON = registerCompositePCC("proton", "Proton", "proton", "938.27 M", "+1",
             "1/2", "Baryon", "uud");
-    public static ItemEntry<TooltipItem> NEUTRON = registerCompositePCC("neutron", "Neutron", "neutron", "939.56 M", "0",
+    public static ItemEntry<TooltipItem> NEUTRON = registerCompositePCC("neutron", "Neutron", "neutron", "939.56 M",
+            "0",
             "1/2", "Baryon", "udd");
     public static ItemEntry<TooltipItem> ANTIPROTON = registerCompositePCC("antiproton", "Antiproton", "antiproton",
             "938.27 M", "-1", "1/2", "Antibaryon", "u̅u̅d̅");
     public static ItemEntry<TooltipItem> ANTINEUTRON = registerCompositePCC("antineutron", "Antineutron", "antineutron",
             "939.56 M", "0", "1/2", "Antibaryon", "u̅d̅d̅");
-    //Kaons.
+    // Kaons.
     public static ItemEntry<TooltipItem> KAON_ZERO = registerComposite("kaon_zero", "Kaon (K⁰)", "k_zero",
             "497.611±0.013 M", "0", "0", "Meson", "ds̅");
-    public static ItemEntry<TooltipItem> KAON_ZERO_OVER = registerComposite("kaon_zero_over", "Kaon (K̅⁰)", "k_zero_over",
+    public static ItemEntry<TooltipItem> KAON_ZERO_OVER = registerComposite("kaon_zero_over", "Kaon (K̅⁰)",
+            "k_zero_over",
             "497.611±0.013 M", "0", "0", "Meson", "sd̅");
     public static ItemEntry<TooltipItem> KAON_PLUS = registerComposite("kaon_plus", "Kaon (K⁺)", "k_plus",
             "493.677±0.016 M", "1", "0", "Meson", "us̅");
     public static ItemEntry<TooltipItem> KAON_MINUS = registerComposite("kaon_minus", "Kaon (K⁻)", "k_minus",
             "493.677±0.016 M", "-1", "0", "Meson", "su̅");
-    //Pions.
+    // Pions.
     public static ItemEntry<TooltipItem> PION_PLUS = registerComposite("pion_plus", "Pion (π⁺)", "pi_plus",
             "139.57039(18) M", "1", "0", "Meson", "ud̅");
     public static ItemEntry<TooltipItem> PION_MINUS = registerComposite("pion_minus", "Pion (π⁻)", "pi_minus",
@@ -237,7 +237,8 @@ public class DiggyItems {
             "§8Quantum Anomaly", "quantum_anomaly", "??? ?", "???", "???", "Anomaly");
 
     // hypothetical, fictional whatever
-    public static ItemEntry<TooltipItem> CUANDAVIS = registerCompositePCC("cuandavis", "Cuandavis", "cuandavis", "1.21 G",
+    public static ItemEntry<TooltipItem> CUANDAVIS = registerCompositePCC("cuandavis", "Cuandavis", "cuandavis",
+            "1.21 G",
             "+1", "1/2", "Baryon", "uur");
     public static ItemEntry<TooltipItem> ANTICUANDAVIS = registerCompositePCC("anticuandavis", "Anticuandavis",
             "anticuandavis", "1.21 G", "-1", "1/2", "Antibaryon", "u̅u̅r̅");
@@ -257,9 +258,11 @@ public class DiggyItems {
             "fra_axion", "NaN ", "NaN", "NaN", "Abstract");
     public static ItemEntry<TooltipItem> PROTOVERSE = registerParticle("protoverse", "Protoverse", "protoverse", "0 ",
             "NaN", "NaN", "Verse");
-    public static ItemEntry<TooltipItem> NORTH_MONOPOLE = registerParticleNoAntiPCC("north_monopole", "North Monopole", "north_monopole", "NaN ", "NaN",
+    public static ItemEntry<TooltipItem> NORTH_MONOPOLE = registerParticleNoAntiPCC("north_monopole", "North Monopole",
+            "north_monopole", "NaN ", "NaN",
             "NaN", "Magnetic Monopole");
-    public static ItemEntry<TooltipItem> SOUTH_MONOPOLE = registerParticleNoAntiPCC("south_monopole", "South Monopole", "south_monopole", "NaN ", "NaN",
+    public static ItemEntry<TooltipItem> SOUTH_MONOPOLE = registerParticleNoAntiPCC("south_monopole", "South Monopole",
+            "south_monopole", "NaN ", "NaN",
             "NaN", "Magnetic Monopole");
 
     public static ItemEntry<TooltipItemScrolling> MICROFRACTAL_LOOP = REGISTRATE
@@ -372,7 +375,8 @@ public class DiggyItems {
 
     public static ItemEntry<TooltipItem> ACETONE_CATALYST = REGISTRATE
             .item("acetone_catalyst", p -> new TooltipItem(p,
-                    () -> Component.literal("Credits to Supersymmetry for the catalyst texture!").withStyle(ChatFormatting.GRAY)))
+                    () -> Component.literal("Credits to Supersymmetry for the catalyst texture!")
+                            .withStyle(ChatFormatting.GRAY)))
             .lang("Acetone Catalyst")
             .model((ctx, prov) -> prov.generated(ctx, prov.modLoc("item/catalysts/acetone")))
             .register();
@@ -380,10 +384,12 @@ public class DiggyItems {
     public static ItemEntry<TooltipItem> registerUniversalCircuit(int voltage) {
         return REGISTRATE
                 .item("universal_" + GTValues.VN[voltage].toLowerCase(), p -> new TooltipItem(p,
-                        () -> Component.literal("A universal circuit. Intended to be used in AE2 patterns.").withStyle(ChatFormatting.GRAY)))
+                        () -> Component.literal("A universal circuit. Intended to be used in AE2 patterns.")
+                                .withStyle(ChatFormatting.GRAY)))
                 .lang("Universal " + GTValues.VOLTAGE_NAMES[voltage] + " Circuit")
-                .model((ctx, prov) -> prov.generated(ctx, prov.modLoc("item/circuits/universal/" + GTValues.VN[voltage].toLowerCase())))
-                .tag(CustomTags.CIRCUITS_ARRAY[voltage]) //Appropriate tag of the voltage
+                .model((ctx, prov) -> prov.generated(ctx,
+                        prov.modLoc("item/circuits/universal/" + GTValues.VN[voltage].toLowerCase())))
+                .tag(CustomTags.CIRCUITS_ARRAY[voltage]) // Appropriate tag of the voltage
                 .register();
     }
 
@@ -421,4 +427,42 @@ public class DiggyItems {
             MAX_UNIVERSAL_CIRCUIT
     };
 
+    public static ItemEntry<TooltipItem> MOON_GANGUE = REGISTRATE
+            .item("moon_gangue", p -> new TooltipItem(p,
+                    () -> Component.literal("Waste left over from the extraction of minerals from Moon sand.")
+                            .withStyle(ChatFormatting.GRAY),
+                    () -> Component.literal("You might still be able to get something out of this...")
+                            .withStyle(ChatFormatting.GRAY)))
+            .lang("Moon Gangue")
+            .model((ctx, prov) -> prov.generated(ctx, prov.modLoc("item/moon_gangue")))
+            .register();
+
+    public static ItemEntry<TooltipItem> EMC_BALL = REGISTRATE
+            .item("emc_ball", p -> new TooltipItem(p,
+                    () -> Component.literal(
+                            "It's what you get after turning pure energy-matter covalence into matter, without any further specifications.")
+                            .withStyle(ChatFormatting.GRAY),
+                    () -> Component.literal(
+                            "It is also one of the only materials that can be turned to EMC by machines without alchemical ability.")
+                            .withStyle(ChatFormatting.GRAY)))
+            .lang("EMC Ball")
+            .model((ctx, prov) -> prov.generated(ctx, prov.modLoc("item/emc_ball")))
+            .register();
+
+    public static ItemEntry<TooltipItem> MOLDY_APPLE = REGISTRATE
+            .item("moldy_apple", p -> new TooltipItem(p,
+                    () -> Component.literal("Ewwww!!!!!")
+                            .withStyle(ChatFormatting.GRAY)))
+            .lang("Moldy Apple")
+            .model((ctx, prov) -> prov.generated(ctx, prov.modLoc("item/biochem/moldy_apple")))
+            .register();
+
+    public static ItemEntry<TooltipItem> AMYLASE_ENZYME = REGISTRATE
+            .item("amylase_enzyme", p -> new TooltipItem(p,
+                    () -> Component.literal(
+                            "Enzyme that catalyses hydrolysis of compounds into sugars. Also effective against alien biochemicals.")
+                            .withStyle(ChatFormatting.GRAY)))
+            .lang("Amylase")
+            .model((ctx, prov) -> prov.generated(ctx, prov.modLoc("item/biochem/amylase")))
+            .register();
 }

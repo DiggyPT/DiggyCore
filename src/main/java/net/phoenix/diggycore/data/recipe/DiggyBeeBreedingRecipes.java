@@ -17,6 +17,9 @@ import static net.phoenix.diggycore.common.data.materials.DiggyMaterialFlags.bee
 public class DiggyBeeBreedingRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
+        // This makes me want to murder myself.
+        // Pattycake pattycake with no hands got me in the club making wedding plans
+
         makePrimaryBeeRecipe(provider, Iron);
         makePrimaryBeeRecipe(provider, Copper);
         makePrimaryBeeRecipe(provider, Tin);

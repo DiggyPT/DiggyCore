@@ -3,15 +3,13 @@ package net.phoenix.diggycore;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
+import com.gregtechceu.gtceu.common.data.GTRecipes;
 
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 import net.phoenix.diggycore.common.data.materials.DiggyElements;
 import net.phoenix.diggycore.common.data.recipe.*;
-import net.phoenix.diggycore.common.data.recipe.generated.DiggyMaterialPartRecipeGen;
-import net.phoenix.diggycore.common.data.recipe.processinglines.DiggyProcessingLinesInit;
 import net.phoenix.diggycore.common.registry.DiggyRegistration;
-import net.phoenix.diggycore.data.recipe.DiggyBeeBreedingRecipes;
-import net.phoenix.diggycore.data.recipe.MachineMakeRecipes;
 
 import java.util.function.Consumer;
 
@@ -39,17 +37,13 @@ public class DiggyGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
-        DiggyMaterialPartRecipeGen.init(provider);
-        DiggyBeeBreedingRecipes.init(provider);
-        MachineMakeRecipes.init(provider);
-        DiggySpaceflightRecipes.init(provider);
-        DiggyCyclotronRecipes.init(provider);
-        DiggyAIRecipes.init(provider);
-        DiggyChemRecipes.init(provider);
-        DiggyProcessingLinesInit.init(provider);
-        DiggyChemicalPlantRecipes.init(provider);
-        DiggyAstroMinerRecipes.init(provider);
-        DiggyCircuitRecipes.init(provider);
+        DiggyRecipes.init(provider);
+    }
+
+    @Override
+    public void removeRecipes(Consumer<ResourceLocation> consumer) {
+        GTRecipes.RECIPE_FILTERS.add(ResourceLocation.parse("gtceu:chemical_reactor/butraldehyde"));
+        GTRecipes.RECIPE_FILTERS.add(ResourceLocation.parse("gtceu:large_chemical_reactor/butraldehyde"));
     }
 
     @Override

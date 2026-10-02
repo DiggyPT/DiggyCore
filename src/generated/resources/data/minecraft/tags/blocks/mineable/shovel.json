@@ -1,5 +1,9 @@
 {
   "values": [
-    "diggycore:greenhouse_dirt"
+    "diggycore:greenhouse_dirt",
+    "diggycore:cation_exchange_resin_beads",
+    "diggycore:anion_exchange_resin_beads",
+    "diggycore:thorium_phosphate_cake",
+    "diggycore:packed_thorium_phosphate_cake"
   ]
 }

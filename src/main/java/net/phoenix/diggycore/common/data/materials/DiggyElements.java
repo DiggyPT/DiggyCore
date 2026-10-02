@@ -6,6 +6,7 @@ import com.gregtechceu.gtceu.api.registry.GTRegistries;
 public class DiggyElements {
 
     // Periodic elements. (Integer atomic number)
+    public static Element URANIUM_236;
     public static Element FEYNMANIUM;
     public static Element ARMSTRONGIUM;
     public static Element HAWKINE;
@@ -28,6 +29,7 @@ public class DiggyElements {
 
     public static void init() {
         // Neutron amount: n = 0.12522539p^2 - 29.278236p + 1887.26392
+        URANIUM_236 = create("uranium_236", 92L, 236L, -1L, null, "Uranium-236", "U²³⁶", true);
         FEYNMANIUM = create("feynmanium", 173L, 570L, -1L, null, "Feynmanium", "Fn", false);
         ARMSTRONGIUM = create("armstrongium", 121L, 178L, -1L, null, "Armstrongium", "Ao", false);
         HAWKINE = create("hawkine", 122L, 179L, -1L, null, "Hawkine", "Hw", false);

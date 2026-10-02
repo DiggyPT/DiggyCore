@@ -2,6 +2,7 @@ package net.phoenix.diggycore.common.data.materials;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
+import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 
 import net.phoenix.diggycore.DiggyCore;
 
@@ -23,7 +24,7 @@ public class AdvancedChemMaterials {
 
     public static void register() {
         UPSILON = new Material.Builder(DiggyCore.id("upsilon"))
-                .liquid(0)
+                .liquid(new FluidBuilder().temperature(0).customStill())
                 .langValue("Upsilon Fluid")
                 .color(0x03fcbe)
                 .flags(DISABLE_DECOMPOSITION)

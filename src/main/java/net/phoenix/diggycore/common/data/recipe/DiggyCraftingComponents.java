@@ -7,13 +7,11 @@ import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.data.recipe.GTCraftingComponents.*;
 import static net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags.*;
 
-public class DiggyCraftingComponents
-{
-    public static void init()
-    {
-        if (GTCEuAPI.isHighTier())
-        {
-            PLATE.add(UEV, plate, ARMSTRONGIUM); //this is placeholder material
+public class DiggyCraftingComponents {
+
+    public static void init() {
+        if (GTCEuAPI.isHighTier()) {
+            PLATE.add(UEV, plate, ARMSTRONGIUM); // this is placeholder material
         }
     }
 }

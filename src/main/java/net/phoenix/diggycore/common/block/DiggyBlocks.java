@@ -128,6 +128,33 @@ public class DiggyBlocks {
                 .register();
     }
 
+    private static @NotNull BlockEntry<Block> registerSoftBlock(String name, String id, String texture,
+                                                                Block properties, @Nullable String tooltip) {
+        return REGISTRATE
+                .block(id, Block::new)
+                .initialProperties(() -> properties)
+                .tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .properties(p -> p.isValidSpawn((state, level, pos, ent) -> false)
+                        .strength(0.5f, 0.5f))
+                .blockstate((ctx, prov) -> prov.simpleBlock(ctx.getEntry(),
+                        prov.models().cubeAll(ctx.getName(), DiggyCore.id("block/" + texture))))
+                .lang(name)
+                .item((b, p) -> new BlockItem(b, p) {
+
+                    @Override
+                    public void appendHoverText(ItemStack stack, @Nullable Level level,
+                                                List<Component> tooltipComponents,
+                                                TooltipFlag isAdvanced) {
+                        if (tooltip != null) {
+                            super.appendHoverText(stack, level, tooltipComponents, isAdvanced);
+                            tooltipComponents.add(1, Component.literal(tooltip).withStyle(ChatFormatting.GRAY));
+                        }
+                    }
+                })
+                .build()
+                .register();
+    }
+
     public static final BlockEntry<Block> ANTI_HIGGS_ROOM_FILTER_CASING = createCleanroomFilters(
             AntiHiggsFilterType.FILTER_CASING_ANTI_HIGGS);
 
@@ -176,4 +203,29 @@ public class DiggyBlocks {
     public static BlockEntry<Block> TURING_CASING = registerColumnBlock("Turing Casing", "turing_casing",
             "casings/turing/side", "casings/turing/end",
             "A less advanced iteration of the Computer Casing.", BlockItem::new);
+
+    public static BlockEntry<Block> CATION_EXCHANGE_RESIN_BEADS = registerSoftBlock("Cation Exchange Resin Beads",
+            "cation_exchange_resin_beads",
+            "cation_exchange_resin_beads", Blocks.WHITE_WOOL,
+            "An acidic mass of ion-exchange resin beads.\nIn reality each bead would be 25,000x smaller than" +
+                    " what is shown on the texture (1 mm vs 25 cm)");
+
+    public static BlockEntry<Block> ANION_EXCHANGE_RESIN_BEADS = registerSoftBlock("Anion Exchange Resin Beads",
+            "anion_exchange_resin_beads",
+            "anion_exchange_resin_beads", Blocks.WHITE_WOOL,
+            "A basic mass of ion-exchange resin beads.\nIn reality each bead would be 25,000x smaller than" +
+                    " what is shown on the texture (1 mm vs 25 cm)");
+
+    public static BlockEntry<Block> THORIUM_PHOSPHATE_CAKE = registerSoftBlock("Thorium Phosphate Cake",
+            "thorium_phosphate_cake",
+            "thorium_phosphate_cake/thorium_phosphate_cake", Blocks.MUD,
+            "An intermediate in thorium processing. Must be dried in order to obtain thorium phosphate.");
+
+    public static BlockEntry<Block> PACKED_THORIUM_PHOSPHATE_CAKE = registerSoftBlock("Packed Thorium Phosphate Cake",
+            "packed_thorium_phosphate_cake",
+            "thorium_phosphate_cake/packed_thorium_phosphate_cake", Blocks.PACKED_MUD, "...Why'd you do this?");
+
+    public static BlockEntry<Block> THORIUM_PHOSPHATE_CAKE_BRICKS = registerSimpleBlock(
+            "Thorium Phosphate Cake Bricks", "thorium_phosphate_cake_bricks",
+            "thorium_phosphate_cake/thorium_phosphate_cake_bricks", BlockItem::new);
 }

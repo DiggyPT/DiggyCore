@@ -6,6 +6,8 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.BlastProperty
 
 import net.phoenix.diggycore.DiggyCore;
 
+import static com.gregtechceu.gtceu.api.GTValues.EV;
+import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static net.phoenix.diggycore.common.data.materials.DiggyNewElementsAndAddFlags.*;
@@ -33,6 +35,9 @@ public class DiggyMetallurgicAndGems {
     public static Material ISAACMANITE;
     public static Material GUNNERITE;
     public static Material CENTAURITE;
+
+    // T Ceti ores.
+    public static Material BACTERIAL_TAR;
 
     // Heavy-duty plating.
     public static Material HEAVY_DUTY_PLATING_TIER_1;
@@ -282,7 +287,7 @@ public class DiggyMetallurgicAndGems {
                 .components(Gadolinium, 11, Cobalt, 6, UNIFON, 5, CENTAURIUM, 3, PHOENICIUM, 1)
                 .langValue("Hirokuno")
                 .appendFlags(EXT2_METAL)
-                .blastTemp(4135, BlastProperty.GasTier.HIGH)
+                .blastTemp(4135, BlastProperty.GasTier.HIGH, 500, 40)
                 .buildAndRegister();
 
         PROTOVERSE_COATED_HIROKUNO = new Material.Builder(DiggyCore.id("protoverse_coated_hirokuno"))
@@ -292,7 +297,7 @@ public class DiggyMetallurgicAndGems {
                 // .formula("")
                 .langValue("Protoverse-Coated Hirokuno")
                 .appendFlags(EXT2_METAL, NO_WORKING)
-                .blastTemp(7523, BlastProperty.GasTier.MID)
+                .blastTemp(7523, BlastProperty.GasTier.MID, 1024, 100)
                 .buildAndRegister();
 
         DESH_OXIDE = new Material.Builder(DiggyCore.id("desh_oxide"))
@@ -327,6 +332,8 @@ public class DiggyMetallurgicAndGems {
                 .components(Terbium, 3, Dysprosium, 7, Iron, 20)
                 .langValue("Terfenol-D")
                 .appendFlags(EXT_METAL, GENERATE_FRAME)
+                .blast(b -> b.temp(3790, BlastProperty.GasTier.MID)
+                        .blastStats(VA[EV], 1000))
                 .buildAndRegister();
 
         TERFENOL_X = new Material.Builder(DiggyCore.id("terfenol_x"))
@@ -336,6 +343,8 @@ public class DiggyMetallurgicAndGems {
                 .components(Terbium, 3, DESH, 7, Iron, 20)
                 .langValue("Terfenol-X")
                 .appendFlags(EXT_METAL, GENERATE_FRAME)
+                .blast(b -> b.temp(2390, BlastProperty.GasTier.MID)
+                        .blastStats(VA[EV], 1000))
                 .buildAndRegister();
     }
 }
