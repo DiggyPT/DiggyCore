@@ -6,8 +6,10 @@ import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEv
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.api.recipe.condition.RecipeConditionType;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
+import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
@@ -25,9 +27,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.phoenix.diggycore.common.DiggyPlanetUtils;
 import net.phoenix.diggycore.common.block.DiggyBlocks;
+import net.phoenix.diggycore.common.data.DiggyRecipeConditions;
 import net.phoenix.diggycore.common.data.DiggyRecipeTypes;
 import net.phoenix.diggycore.common.data.materials.*;
-import net.phoenix.diggycore.common.data.recipe.DiggyCraftingComponents;
 import net.phoenix.diggycore.common.item.DiggyItems;
 import net.phoenix.diggycore.common.machine.DiggyMachines;
 
@@ -79,6 +81,7 @@ public class DiggyCore {
         modEventBus.addGenericListener(GTRecipeType.class, this::registerRecipeTypes);
         modEventBus.addGenericListener(MachineDefinition.class, this::registerMachines);
         modEventBus.addGenericListener(SoundEntry.class, this::registerSounds);
+        modEventBus.addGenericListener(RecipeConditionType.class, DiggyRecipeConditions::registerConditions);
 
         // Most other events are fired on Forge's bus.
         // If we want to use annotations to register event listeners,
@@ -120,7 +123,7 @@ public class DiggyCore {
         DiggyBlocks.init();
         DiggyItems.init();
         DiggyMaterialFlags.init();
-        //DiggyCraftingComponents.init();
+        // DiggyCraftingComponents.init();
 
         // PhoenixDatagen.init();
     }
@@ -149,6 +152,8 @@ public class DiggyCore {
         AdvancedChemMaterials.register();
         BasicChemistryMaterials.register();
         DiggyMetallurgicAndGems.register();
+        BioChemMaterials.register();
+        RareEarthMaterials.register();
     }
 
     /**
@@ -168,6 +173,8 @@ public class DiggyCore {
      */
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
         DiggyRecipeTypes.init();
+        GTRecipeTypes.BLAST_RECIPES.setMaxIOSize(3, 3, 1, 2);
+        GTRecipeTypes.SIFTER_RECIPES.setMaxIOSize(1, 6, 1, 0);
     }
 
     /**
@@ -202,11 +209,11 @@ public class DiggyCore {
                 graphics.blit(DimensionRenderingUtils.SUN, width / 2 - 8, height / 2 - 8, 0.0F, 0.0F, 16, 16, 16, 16);
                 float rotation = (float) Util.getMillis() / 100.0F % 360.0F;
 
-                for(int i = 1; i < 4; ++i) {
+                for (int i = 1; i < 4; ++i) {
                     graphics.pose().pushPose();
-                    graphics.pose().translate((float)width / 2.0F, (float)height / 2.0F, 0.0F);
-                    graphics.pose().mulPose(Axis.ZP.rotationDegrees(rotation * (float)(4 - i) / 2.0F));
-                    graphics.pose().translate((float)(31 * i - 10), 0.0F, 0.0F);
+                    graphics.pose().translate((float) width / 2.0F, (float) height / 2.0F, 0.0F);
+                    graphics.pose().mulPose(Axis.ZP.rotationDegrees(rotation * (float) (4 - i) / 2.0F));
+                    graphics.pose().translate((float) (31 * i - 10), 0.0F, 0.0F);
                     graphics.blit(DiggyPlanetUtils.TAU_CETI_TEXTURES.get(i - 1), 0, 0, 0.0F, 0.0F, 12, 12, 12, 12);
                     graphics.pose().popPose();
                 }

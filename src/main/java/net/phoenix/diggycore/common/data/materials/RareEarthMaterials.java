@@ -184,7 +184,7 @@ public class RareEarthMaterials {
                 .formula("C4H10O")
                 .buildAndRegister();
 
-        N_BUTANOL = new Material.Builder(DiggyCore.id("n_butanol"))
+        N_BUTANOL = new Material.Builder(DiggyCore.id("n_butanol")) // Hi
                 .liquid(new FluidBuilder().customStill())
                 .langValue("Butanol")
                 .formula("C4H10O")

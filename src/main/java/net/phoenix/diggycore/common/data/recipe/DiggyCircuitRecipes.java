@@ -46,13 +46,13 @@ public class DiggyCircuitRecipes {
                 .circuitMeta(10)
                 .outputItems(DfPlanetsModBlocks.MICROPROCESSOR_MAINFRAME)
                 .duration(1).EUt(VH[ULV])
-                .addMaterialInfo(true).save(provider);
+                .save(provider);
 
         ASSEMBLER_RECIPES.recipeBuilder("diggycore:mainframe_convert2")
                 .outputItems(GTItems.MAINFRAME_IV)
                 .circuitMeta(10)
                 .inputItems(DfPlanetsModBlocks.MICROPROCESSOR_MAINFRAME)
                 .duration(1).EUt(VH[ULV])
-                .addMaterialInfo(true).save(provider);
+                .save(provider);
     }
 }

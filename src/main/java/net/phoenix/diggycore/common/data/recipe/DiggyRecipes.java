@@ -18,7 +18,7 @@ public class DiggyRecipes {
         DiggySpaceflightRecipes.init(provider);
         DiggyCyclotronRecipes.init(provider);
         DiggyAIRecipes.init(provider);
-        DiggyChemRecipes.init(provider);
+        DiggyChemRecipes.init(provider);// s
         DiggyProcessingLinesInit.init(provider);
         DiggyChemicalPlantRecipes.init(provider);
         DiggyVibrationSieveRecipes.init(provider);
